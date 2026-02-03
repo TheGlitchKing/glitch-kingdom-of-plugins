@@ -1,0 +1,9 @@
+[submodule "plugins/hit-em-with-the-docs"]
+	path = plugins/hit-em-with-the-docs
+	url = https://github.com/TheGlitchKing/hit-em-with-the-docs.git
+[submodule "plugins/mind-glaive"]
+	path = plugins/mind-glaive
+	url = https://github.com/TheGlitchKing/mind-glaive.git
+[submodule "plugins/aeon-flux"]
+	path = plugins/aeon-flux
+	url = https://github.com/TheGlitchKing/aeon-flux.git

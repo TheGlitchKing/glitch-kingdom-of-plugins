@@ -1,0 +1,224 @@
+{
+  "$schema": "./schemas/plugin-schema.json",
+  "name": "glitch-kingdom-of-plugins",
+  "version": "1.0.0",
+  "description": "Official marketplace for TheGlitchKing's Claude Code plugins and development tools",
+  "owner": {
+    "name": "TheGlitchKing",
+    "email": "theglitchking@users.noreply.github.com",
+    "github": "TheGlitchKing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheGlitchKing/glitch-kingdom-of-plugins"
+  },
+  "plugins": [
+    {
+      "id": "hit-em-with-the-docs",
+      "name": "hit-em-with-the-docs",
+      "displayName": "Hit 'Em With The Docs",
+      "type": "cli-tool",
+      "version": "1.0.0",
+      "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "hit-em-with-the-docs",
+        "url": "https://github.com/TheGlitchKing/hit-em-with-the-docs"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/hit-em-with-the-docs"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "npm",
+            "command": "npm install -g hit-em-with-the-docs"
+          },
+          {
+            "type": "github-action",
+            "uses": "TheGlitchKing/hit-em-with-the-docs@v1"
+          },
+          {
+            "type": "npx",
+            "command": "npx hit-em-with-the-docs"
+          }
+        ],
+        "requirements": {
+          "node": ">=20.0.0"
+        }
+      },
+      "category": "documentation",
+      "tags": ["documentation", "cli", "github-action", "automation", "self-managing"],
+      "keywords": ["documentation", "github-action", "docs", "markdown", "automation", "cli", "hierarchical", "metadata", "pattern-discovery", "code-quality", "self-managing", "dsmp"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
+      "status": "production-ready"
+    },
+    {
+      "id": "mind-glaive",
+      "name": "mind-glaive",
+      "displayName": "Mind Glaive",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "mind-glaive",
+        "url": "https://github.com/TheGlitchKing/mind-glaive"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/mind-glaive"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/mind-glaive"
+          },
+          {
+            "type": "manual",
+            "steps": [
+              "git clone https://github.com/TheGlitchKing/mind-glaive.git",
+              "cd mind-glaive",
+              "./install.sh --scope user --template full-stack"
+            ]
+          }
+        ],
+        "requirements": {
+          "claude-code": ">=1.0.0",
+          "bash": true,
+          "optional": {
+            "ollama": "For local LLM summarization"
+          }
+        }
+      },
+      "category": "productivity",
+      "tags": ["context-management", "memory", "learning", "automation", "hooks", "subagents"],
+      "keywords": ["context", "memory", "persistence", "hooks", "subagents", "knowledge-base", "claude-code"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/mind-glaive",
+      "status": "production-ready",
+      "features": {
+        "hooks": ["SessionStart", "SessionEnd", "PreToolUse", "PostToolUse", "PreCompact"],
+        "commands": ["/context/status", "/context/optimize", "/context/reset", "/learn/from-session", "/learn/from-codebase", "/resume/last-task", "/resume/branch"],
+        "mcpServers": ["project-kb", "codebase-rag"]
+      }
+    },
+    {
+      "id": "aeon-loop",
+      "name": "aeon-loop",
+      "displayName": "Aeon Loop",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery",
+      "author": {
+        "name": "TheGlitchKing",
+        "email": "theglitchking@users.noreply.github.com"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "aeon-loop",
+        "url": "https://github.com/TheGlitchKing/aeon-loop"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/aeon-loop"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin add TheGlitchKing/aeon-loop"
+          }
+        ],
+        "requirements": {
+          "claude-code": ">=2.0.13",
+          "bash": true
+        }
+      },
+      "category": "productivity",
+      "tags": ["automation", "autonomous", "loop", "task-execution", "orchestration"],
+      "keywords": ["loop", "autonomous", "task-execution", "context-persistence", "subagents"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/aeon-loop",
+      "status": "production-ready",
+      "dependencies": {
+        "includes": ["aeon-flux"],
+        "recommends": ["mind-glaive"]
+      },
+      "features": {
+        "hooks": ["Stop", "SessionStart", "PreToolUse", "PostBash", "PreCompact"],
+        "commands": ["/aeon-flux", "/loop", "/abort", "/pause", "/resume", "/status"]
+      }
+    },
+    {
+      "id": "aeon-flux",
+      "name": "aeon-flux",
+      "displayName": "Aeon Flux",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Bash Loop operating mode - action over explanation, tight feedback loops, intelligent context preservation",
+      "author": {
+        "name": "TheGlitchKing",
+        "email": "theglitchking@users.noreply.github.com"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "aeon-flux",
+        "url": "https://github.com/TheGlitchKing/aeon-flux"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/aeon-flux"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "included-in",
+            "parent": "aeon-loop",
+            "note": "Included as part of aeon-loop installation"
+          }
+        ],
+        "requirements": {
+          "claude-code": ">=1.0.0",
+          "bash": true
+        }
+      },
+      "category": "productivity",
+      "tags": ["bash-loop", "action-oriented", "subagent-control", "context-preservation"],
+      "keywords": ["bash-loop", "feedback", "action", "tight-loop", "efficiency"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/aeon-flux",
+      "status": "production-ready",
+      "features": {
+        "skills": ["/bash-loop", "/abort", "/focus", "/reflect", "/checkpoint", "/resume"]
+      }
+    }
+  ],
+  "categories": {
+    "documentation": {
+      "name": "Documentation",
+      "description": "Tools for managing, generating, and maintaining documentation"
+    },
+    "productivity": {
+      "name": "Productivity",
+      "description": "Tools that enhance development workflows and efficiency"
+    },
+    "automation": {
+      "name": "Automation",
+      "description": "Tools for automating repetitive tasks"
+    }
+  }
+}

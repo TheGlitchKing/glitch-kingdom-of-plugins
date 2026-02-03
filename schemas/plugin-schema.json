@@ -1,0 +1,391 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/TheGlitchKing/glitch-kingdom-of-plugins/schemas/plugin-schema.json",
+  "title": "Plugin Marketplace Schema",
+  "description": "Schema for the Glitch Kingdom plugin marketplace configuration",
+  "type": "object",
+  "required": ["name", "version", "description", "owner", "repository", "plugins", "categories"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "name": {
+      "type": "string",
+      "description": "Marketplace name",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "description": "Marketplace version (semantic versioning)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9\\.]+)?$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Marketplace description",
+      "minLength": 1
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name", "github"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "github": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "repository": {
+      "type": "object",
+      "required": ["type", "url"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["git"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "description": "Array of plugin definitions",
+      "items": {
+        "$ref": "#/definitions/plugin"
+      },
+      "minItems": 1
+    },
+    "categories": {
+      "type": "object",
+      "description": "Plugin categories",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "description"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "plugin": {
+      "type": "object",
+      "required": ["id", "name", "displayName", "type", "version", "description", "author", "repository", "source", "installation", "category", "tags", "keywords", "license", "homepage", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique plugin identifier (kebab-case)",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "description": "Plugin name (should match id)",
+          "minLength": 1
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable plugin name",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "Plugin type",
+          "enum": ["claude-plugin", "cli-tool", "library", "mcp-server"]
+        },
+        "version": {
+          "type": "string",
+          "description": "Plugin version (semantic versioning)",
+          "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9\\.]+)?$"
+        },
+        "description": {
+          "type": "string",
+          "description": "Plugin description",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "author": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        },
+        "repository": {
+          "type": "object",
+          "required": ["type", "owner", "repo", "url"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["github", "gitlab", "git"]
+            },
+            "owner": {
+              "type": "string",
+              "minLength": 1
+            },
+            "repo": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "required": ["type", "path"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["submodule", "embedded", "external"]
+            },
+            "path": {
+              "type": "string",
+              "description": "Path to plugin source (relative for submodules)"
+            }
+          }
+        },
+        "installation": {
+          "type": "object",
+          "required": ["methods", "requirements"],
+          "properties": {
+            "methods": {
+              "type": "array",
+              "description": "Available installation methods",
+              "items": {
+                "type": "object",
+                "required": ["type"],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["npm", "claude-marketplace", "manual", "github-action", "npx", "included-in"]
+                  },
+                  "command": {
+                    "type": "string"
+                  },
+                  "uses": {
+                    "type": "string"
+                  },
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "parent": {
+                    "type": "string",
+                    "description": "Parent plugin ID for included-in type"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "minItems": 1
+            },
+            "requirements": {
+              "type": "object",
+              "description": "Installation requirements",
+              "properties": {
+                "node": {
+                  "type": "string",
+                  "description": "Node.js version requirement"
+                },
+                "claude-code": {
+                  "type": "string",
+                  "description": "Claude Code version requirement"
+                },
+                "bash": {
+                  "type": "boolean",
+                  "description": "Requires bash shell"
+                },
+                "python": {
+                  "type": "string",
+                  "description": "Python version requirement"
+                },
+                "optional": {
+                  "type": "object",
+                  "description": "Optional dependencies",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "Primary category (must match categories defined at root)",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "description": "Plugin tags for categorization",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Search keywords",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "license": {
+          "type": "string",
+          "description": "License identifier (SPDX)",
+          "minLength": 1
+        },
+        "homepage": {
+          "type": "string",
+          "description": "Plugin homepage URL",
+          "format": "uri"
+        },
+        "status": {
+          "type": "string",
+          "description": "Development status",
+          "enum": ["experimental", "beta", "production-ready", "deprecated"]
+        },
+        "dependencies": {
+          "type": "object",
+          "description": "Plugin dependencies",
+          "properties": {
+            "requires": {
+              "type": "array",
+              "description": "Required plugins (must be installed)",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommends": {
+              "type": "array",
+              "description": "Recommended plugins",
+              "items": {
+                "type": "string"
+              }
+            },
+            "includes": {
+              "type": "array",
+              "description": "Plugins included in this package",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "features": {
+          "type": "object",
+          "description": "Plugin features",
+          "properties": {
+            "hooks": {
+              "type": "array",
+              "description": "Claude Code hooks provided",
+              "items": {
+                "type": "string"
+              }
+            },
+            "commands": {
+              "type": "array",
+              "description": "Slash commands provided",
+              "items": {
+                "type": "string"
+              }
+            },
+            "skills": {
+              "type": "array",
+              "description": "Skills provided",
+              "items": {
+                "type": "string"
+              }
+            },
+            "mcpServers": {
+              "type": "array",
+              "description": "MCP servers provided",
+              "items": {
+                "type": "string"
+              }
+            },
+            "agents": {
+              "type": "array",
+              "description": "Agents provided",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "versionHistory": {
+          "type": "object",
+          "description": "Version history with release metadata",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "releaseDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "breaking": {
+                "type": "boolean"
+              },
+              "changelogUrl": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "compatibility": {
+          "type": "object",
+          "description": "Compatibility requirements",
+          "properties": {
+            "claude-code": {
+              "type": "string",
+              "description": "Claude Code version range"
+            },
+            "plugins": {
+              "type": "object",
+              "description": "Compatible plugin versions",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
