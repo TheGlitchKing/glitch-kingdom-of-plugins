@@ -18,7 +18,7 @@
       "name": "hit-em-with-the-docs",
       "displayName": "Hit 'Em With The Docs",
       "type": "cli-tool",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
       "author": {
         "name": "TheGlitchKing"
@@ -30,22 +30,26 @@
         "url": "https://github.com/TheGlitchKing/hit-em-with-the-docs"
       },
       "source": {
-        "type": "submodule",
-        "path": "./plugins/hit-em-with-the-docs"
+        "type": "npm",
+        "package": "@theglitchking/hit-em-with-the-docs"
       },
       "installation": {
         "methods": [
           {
             "type": "npm",
-            "command": "npm install -g hit-em-with-the-docs"
-          },
-          {
-            "type": "github-action",
-            "uses": "TheGlitchKing/hit-em-with-the-docs@v1"
+            "command": "npm install -g @theglitchking/hit-em-with-the-docs"
           },
           {
             "type": "npx",
-            "command": "npx hit-em-with-the-docs"
+            "command": "npx @theglitchking/hit-em-with-the-docs"
+          },
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/hit-em-with-the-docs"
+          },
+          {
+            "type": "github-action",
+            "uses": "TheGlitchKing/hit-em-with-the-docs@v2"
           }
         ],
         "requirements": {
@@ -53,11 +57,14 @@
         }
       },
       "category": "documentation",
-      "tags": ["documentation", "cli", "github-action", "automation", "self-managing"],
+      "tags": ["documentation", "cli", "github-action", "automation", "self-managing", "claude-plugin"],
       "keywords": ["documentation", "github-action", "docs", "markdown", "automation", "cli", "hierarchical", "metadata", "pattern-discovery", "code-quality", "self-managing", "dsmp"],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
-      "status": "production-ready"
+      "status": "production-ready",
+      "features": {
+        "commands": ["/docs", "/discover"]
+      }
     },
     {
       "id": "mind-glaive",
