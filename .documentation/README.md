@@ -14,7 +14,7 @@ tags:
   - testing
   - security
 status: draft
-last_updated: 2026-02-03
+last_updated: 2026-02-03T00:00:00.000Z
 version: 1.0.0
 purpose: This documentation system uses a hierarchical 15-domain structure for
   optimal organization and discoverability.
