@@ -71,7 +71,7 @@
       "name": "mind-glaive",
       "displayName": "Mind Glaive",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
       "author": {
         "name": "TheGlitchKing"
@@ -83,11 +83,19 @@
         "url": "https://github.com/TheGlitchKing/mind-glaive"
       },
       "source": {
-        "type": "submodule",
-        "path": "./plugins/mind-glaive"
+        "type": "npm",
+        "package": "@theglitchking/mind-glaive"
       },
       "installation": {
         "methods": [
+          {
+            "type": "npm",
+            "command": "npm install -g @theglitchking/mind-glaive && mind-glaive install --scope user --template full-stack"
+          },
+          {
+            "type": "npx",
+            "command": "npx @theglitchking/mind-glaive install --scope user --template full-stack"
+          },
           {
             "type": "claude-marketplace",
             "command": "/plugin install TheGlitchKing/mind-glaive"
@@ -102,6 +110,7 @@
           }
         ],
         "requirements": {
+          "node": ">=16.0.0",
           "claude-code": ">=1.0.0",
           "bash": true,
           "optional": {
