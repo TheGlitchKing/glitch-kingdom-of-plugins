@@ -135,8 +135,8 @@
       "name": "aeon-loop",
       "displayName": "Aeon Loop",
       "type": "claude-plugin",
-      "version": "1.0.0",
-      "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery",
+      "version": "1.1.0",
+      "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery. Includes bundled aeon-flux.",
       "author": {
         "name": "TheGlitchKing",
         "email": "theglitchking@users.noreply.github.com"
@@ -148,19 +148,27 @@
         "url": "https://github.com/TheGlitchKing/aeon-loop"
       },
       "source": {
-        "type": "submodule",
-        "path": "./plugins/aeon-loop"
+        "type": "npm",
+        "package": "@theglitchking/aeon-loop"
       },
       "installation": {
         "methods": [
+          {
+            "type": "npm",
+            "command": "npm install -g @theglitchking/aeon-loop && aeon-loop install --scope user"
+          },
+          {
+            "type": "npx",
+            "command": "npx @theglitchking/aeon-loop install --scope user"
+          },
           {
             "type": "claude-marketplace",
             "command": "/plugin add TheGlitchKing/aeon-loop"
           }
         ],
         "requirements": {
-          "claude-code": ">=2.0.13",
-          "bash": true
+          "node": ">=16.0.0",
+          "claude-code": ">=2.0.13"
         }
       },
       "category": "productivity",
