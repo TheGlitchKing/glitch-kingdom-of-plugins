@@ -21,7 +21,7 @@ purpose: This guide provides the complete procedure for adding a new plugin to
   integration and publication.
 estimated_read_time: 9 minutes
 word_count: 1611
-last_validated: 2026-02-03
+last_validated: 2026-02-04
 backlinks: []
 ---
 

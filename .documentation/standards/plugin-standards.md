@@ -3,7 +3,6 @@ title: Plugin Standards and Requirements
 tier: standard
 domains:
   - standards
-  - standards
   - testing
 audience:
   - developers
@@ -12,14 +11,17 @@ tags:
   - api
   - testing
   - security
-status: draft
-last_updated: 2026-02-03T00:00:00.000Z
-version: 1.0.0
+  - npm
+  - distribution
+status: published
+last_updated: 2026-02-03T17:20:00.000Z
+version: 1.1.0
 purpose: Standards and requirements for plugins in the Glitch Kingdom
-  Marketplace to ensure consistency, quality, and maintainability.
-estimated_read_time: 6 minutes
-word_count: 1123
-last_validated: 2026-02-03
+  Marketplace to ensure consistency, quality, and maintainability. Includes NPM
+  distribution standards.
+estimated_read_time: 8 minutes
+word_count: 1405
+last_validated: 2026-02-04
 backlinks: []
 ---
 
@@ -148,11 +150,14 @@ Every plugin must include:
   - Repository: `hit-em-with-the-docs` → Display: "Hit 'Em With The Docs"
 
 ### NPM Package Names
-- **Format**: Scoped under `@theglitchking/`
+- **Format**: Scoped under `@theglitchking/` (Required for all NPM packages)
+- **Pattern**: `@theglitchking/[plugin-id]`
 - **Examples**:
   - ✅ `@theglitchking/mind-glaive`
   - ✅ `@theglitchking/hit-em-with-the-docs`
-  - ❌ `mind-glaive` (not scoped)
+  - ✅ `@theglitchking/aeon-loop`
+  - ❌ `mind-glaive` (not scoped - unacceptable)
+  - ❌ `@other-scope/plugin-name` (wrong scope)
 
 ## Version Management
 
@@ -193,6 +198,190 @@ All plugins must follow semantic versioning (MAJOR.MINOR.PATCH):
   ### Added
   - Initial release
   ```
+
+## NPM Distribution Standards
+
+All plugins with NPM distribution must follow these standards:
+
+### Package Configuration
+
+**Required in package.json**:
+```json
+{
+  "name": "@theglitchking/plugin-name",
+  "version": "1.0.0",
+  "description": "Clear description matching plugin.json",
+  "bin": {
+    "plugin-name": "./bin/plugin-name.js"
+  },
+  "files": [
+    "bin/",
+    "plugins/",
+    ".claude-plugin/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "bash scripts/validate-version.sh"
+  },
+  "keywords": ["claude-code", "claude-plugin", "..."],
+  "author": {
+    "name": "TheGlitchKing",
+    "email": "theglitchking@users.noreply.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheGlitchKing/plugin-name"
+  },
+  "license": "MIT"
+}
+```
+
+### CLI Wrapper Requirements
+
+All NPM-distributed plugins must include a CLI wrapper at `bin/[plugin-name].js`:
+
+**Required commands**:
+- `install` - Install plugin to Claude Code
+- `uninstall` - Uninstall plugin from Claude Code
+- `status` - Check installation status
+- `help` - Display help information
+
+**Example structure**:
+```javascript
+#!/usr/bin/env node
+const commands = {
+  install: () => { /* Copy plugin files to ~/.claude/ */ },
+  uninstall: () => { /* Remove plugin files */ },
+  status: () => { /* Check if installed */ },
+  help: () => { /* Show usage */ }
+};
+
+const command = process.argv[2] || 'help';
+if (commands[command]) {
+  commands[command]();
+} else {
+  console.error(`Unknown command: ${command}`);
+  commands.help();
+  process.exit(1);
+}
+```
+
+### Version Validation Script
+
+**Required**: `scripts/validate-version.sh` must verify version consistency across:
+- `package.json`
+- `.claude-plugin/plugin.json`
+- Referenced in `prepublishOnly` script
+
+**Example**:
+```bash
+#!/bin/bash
+set -e
+
+PACKAGE_VERSION=$(node -p "require('./package.json').version")
+PLUGIN_VERSION=$(node -p "require('./.claude-plugin/plugin.json').version")
+
+if [ "$PACKAGE_VERSION" != "$PLUGIN_VERSION" ]; then
+  echo "❌ Version mismatch!"
+  echo "  package.json: $PACKAGE_VERSION"
+  echo "  plugin.json: $PLUGIN_VERSION"
+  exit 1
+fi
+
+echo "✅ All versions match: $PACKAGE_VERSION"
+```
+
+### Postinstall Messaging
+
+**Required**: `postinstall.js` must provide clear next steps:
+
+```javascript
+#!/usr/bin/env node
+console.log(`
+✨ @theglitchking/plugin-name installed successfully!
+
+📦 Quick Start:
+  plugin-name install --scope user    # Install to Claude Code
+  plugin-name status                   # Check installation
+  plugin-name help                     # Show all commands
+
+📚 Documentation: https://github.com/TheGlitchKing/plugin-name
+`);
+```
+
+### NPM Publishing Checklist
+
+Before publishing to NPM:
+
+- [ ] Package name is scoped: `@theglitchking/[plugin-name]`
+- [ ] `publishConfig.access` is set to `"public"`
+- [ ] Version matches across package.json and plugin.json
+- [ ] `bin/` CLI wrapper is executable (`chmod +x`)
+- [ ] Version validation script exists and passes
+- [ ] Postinstall message is informative
+- [ ] All files listed in `files` array exist
+- [ ] Test with `npm pack` and extract tarball
+- [ ] Test CLI commands work from unpacked tarball
+- [ ] CHANGELOG.md is updated for new version
+- [ ] Git tag matches version (`vX.Y.Z`)
+
+### Breaking Change Policy for NPM
+
+**Unscoped → Scoped transition** (e.g., `plugin-name` → `@theglitchking/plugin-name`):
+- **Requires**: MAJOR version bump
+- **Requires**: MIGRATION.md document
+- **Requires**: Deprecation notice on old package
+- **Example**: hit-em-with-the-docs v1.0.0 → v2.0.0 (scoped)
+
+**NPM-specific breaking changes**:
+- Changing scope or package name
+- Removing/renaming CLI commands
+- Changing CLI argument formats
+- Changing default installation scope
+
+### marketplace.json NPM Entry
+
+When plugin is distributed via NPM, marketplace.json must include:
+
+```json
+{
+  "source": {
+    "type": "npm",
+    "package": "@theglitchking/plugin-name"
+  },
+  "installation": {
+    "methods": [
+      {
+        "type": "npm",
+        "command": "npm install -g @theglitchking/plugin-name && plugin-name install --scope user"
+      },
+      {
+        "type": "npx",
+        "command": "npx @theglitchking/plugin-name install --scope user"
+      },
+      {
+        "type": "claude-marketplace",
+        "command": "/plugin install TheGlitchKing/plugin-name"
+      }
+    ],
+    "requirements": {
+      "node": ">=16.0.0",
+      "claude-code": ">=1.0.0"
+    }
+  }
+}
+```
+
+**Installation method priority**:
+1. NPM (global install) - Primary method
+2. NPX (no installation) - Convenient alternative
+3. Claude marketplace - Fallback
+4. Manual (git clone) - Advanced users
 
 ## marketplace.json Standards
 

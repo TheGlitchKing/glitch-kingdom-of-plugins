@@ -25,7 +25,7 @@ A TypeScript-based CLI tool and GitHub Action that creates hierarchical, metadat
 
 - **Type**: CLI Tool + GitHub Action
 - **Status**: Production Ready
-- **Installation**: `npm install -g hit-em-with-the-docs`
+- **Installation**: `npm install -g @theglitchking/hit-em-with-the-docs`
 - **Features**: 15-domain hierarchy, 22-field metadata schema, pattern discovery, self-healing
 
 [Learn More →](https://github.com/TheGlitchKing/hit-em-with-the-docs)
@@ -37,7 +37,7 @@ Eliminate context rot through intelligent memory hierarchy, auto-learning hooks,
 
 - **Type**: Claude Native Plugin
 - **Status**: Production Ready
-- **Installation**: `/plugin install TheGlitchKing/mind-glaive`
+- **Installation**: `npm install -g @theglitchking/mind-glaive` or `/plugin install TheGlitchKing/mind-glaive`
 - **Features**: 8-layer architecture, SessionStart/End hooks, MCP knowledge base, pattern learning
 
 [Learn More →](https://github.com/TheGlitchKing/mind-glaive)
@@ -47,9 +47,9 @@ Eliminate context rot through intelligent memory hierarchy, auto-learning hooks,
 
 "Start and walk away" autonomous execution with fresh sessions per iteration, filesystem-based state, and intelligent recovery.
 
-- **Type**: Claude Native Plugin
+- **Type**: Claude Native Plugin (includes Aeon Flux)
 - **Status**: Production Ready
-- **Installation**: `/plugin add TheGlitchKing/aeon-loop`
+- **Installation**: `npm install -g @theglitchking/aeon-loop` or `/plugin add TheGlitchKing/aeon-loop`
 - **Features**: Loop orchestrator, DAG-based execution, circuit breaker, worker timeout
 
 [Learn More →](https://github.com/TheGlitchKing/aeon-loop)
@@ -83,24 +83,43 @@ ls plugins/
 ./scripts/install-plugin.sh <plugin-name>
 ```
 
-#### Option 2: Install Individual Plugins
+#### Option 2: Install Individual Plugins via NPM (Recommended)
 
 **For CLI Tools (hit-em-with-the-docs):**
 ```bash
 # Via NPM
-npm install -g hit-em-with-the-docs
+npm install -g @theglitchking/hit-em-with-the-docs
 
 # Or via NPX (no install)
-npx hit-em-with-the-docs init
+npx @theglitchking/hit-em-with-the-docs init
 ```
 
 **For Claude Plugins (mind-glaive, aeon-loop):**
 ```bash
-# Via Claude marketplace
+# Via NPM
+npm install -g @theglitchking/mind-glaive
+mind-glaive install --scope user --template full-stack
+
+npm install -g @theglitchking/aeon-loop
+aeon-loop install --scope user
+
+# Or via NPX (no install)
+npx @theglitchking/mind-glaive install --scope user --template full-stack
+npx @theglitchking/aeon-loop install --scope user
+```
+
+#### Option 3: Install via Claude Marketplace
+
+```bash
+# In Claude Code
 /plugin install TheGlitchKing/mind-glaive
 /plugin add TheGlitchKing/aeon-loop
+```
 
-# Or manual installation
+#### Option 4: Manual Installation
+
+```bash
+# Clone and install manually
 git clone https://github.com/TheGlitchKing/mind-glaive.git
 cd mind-glaive
 ./install.sh --scope user --template full-stack
@@ -149,7 +168,13 @@ Tools for automating repetitive tasks
 - Bash (for scripts)
 
 ### For Individual Plugins
+
+**NPM Installation**:
 - **hit-em-with-the-docs**: Node.js 20+
+- **mind-glaive**: Node.js 16+, Claude Code 1.0+, Optional: Python 3.9+ (for MCP servers), Optional: Ollama
+- **aeon-loop/flux**: Node.js 16+, Claude Code 2.0.13+
+
+**Manual/Marketplace Installation**:
 - **mind-glaive**: Claude Code 1.0+, Bash, Python 3.9+ (for MCP servers), Optional: Ollama
 - **aeon-loop/flux**: Claude Code 2.0.13+, Bash
 
@@ -198,7 +223,18 @@ MIT License - see individual plugin repositories for their specific licenses.
 
 ### For Users
 
-Update plugins to latest versions:
+**Update NPM packages**:
+```bash
+# Update all plugins
+npm update -g @theglitchking/hit-em-with-the-docs
+npm update -g @theglitchking/mind-glaive
+npm update -g @theglitchking/aeon-loop
+
+# Or update individually
+npm update -g @theglitchking/[plugin-name]
+```
+
+**Update marketplace submodules**:
 ```bash
 cd glitch-kingdom-of-plugins
 git pull

@@ -22,7 +22,7 @@ purpose: Guide for developing and contributing plugins to the Glitch Kingdom
   Marketplace.
 estimated_read_time: 5 minutes
 word_count: 922
-last_validated: 2026-02-03
+last_validated: 2026-02-04
 backlinks: []
 ---
 

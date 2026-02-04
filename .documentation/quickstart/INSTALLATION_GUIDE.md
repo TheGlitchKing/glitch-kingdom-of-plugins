@@ -9,13 +9,15 @@ audience:
 tags:
   - node
   - python
-status: draft
-last_updated: 2026-02-03T00:00:00.000Z
-version: 1.0.0
-purpose: Complete guide for installing plugins from the Glitch Kingdom Marketplace.
+  - npm
+status: published
+last_updated: 2026-02-03T17:15:00.000Z
+version: 1.1.0
+purpose: Complete guide for installing plugins from the Glitch Kingdom
+  Marketplace via NPM, Claude marketplace, or manual methods.
 estimated_read_time: 4 minutes
-word_count: 634
-last_validated: 2026-02-03
+word_count: 658
+last_validated: 2026-02-04
 backlinks: []
 ---
 
@@ -79,7 +81,7 @@ Best for users who want specific plugins without cloning the marketplace.
 
 **Option A: Global NPM Installation**
 ```bash
-npm install -g hit-em-with-the-docs
+npm install -g @theglitchking/hit-em-with-the-docs
 
 # Verify installation
 hewtd --version
@@ -90,8 +92,8 @@ hewtd init
 
 **Option B: NPX (No Installation)**
 ```bash
-npx hit-em-with-the-docs init
-npx hit-em-with-the-docs maintain
+npx @theglitchking/hit-em-with-the-docs init
+npx @theglitchking/hit-em-with-the-docs maintain
 ```
 
 **Option C: GitHub Action**
@@ -113,7 +115,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run Hit Em With The Docs
-        uses: TheGlitchKing/hit-em-with-the-docs@v1
+        uses: TheGlitchKing/hit-em-with-the-docs@v2
         with:
           command: maintain
           mode: fix
@@ -121,14 +123,31 @@ jobs:
 
 #### Claude Plugins (mind-glaive, aeon-loop, aeon-flux)
 
-**Option A: Claude Marketplace (Easiest)**
+**Option A: NPM Installation (Recommended)**
+```bash
+# mind-glaive
+npm install -g @theglitchking/mind-glaive
+mind-glaive install --scope user --template full-stack
+
+# Or use npx (no global install)
+npx @theglitchking/mind-glaive install --scope user --template full-stack
+
+# aeon-loop (includes aeon-flux)
+npm install -g @theglitchking/aeon-loop
+aeon-loop install --scope user
+
+# Or use npx
+npx @theglitchking/aeon-loop install --scope user
+```
+
+**Option B: Claude Marketplace**
 ```bash
 # In Claude Code
 /plugin install TheGlitchKing/mind-glaive
 /plugin add TheGlitchKing/aeon-loop
 ```
 
-**Option B: Manual Installation (Full Control)**
+**Option C: Manual Installation (Full Control)**
 ```bash
 # mind-glaive
 git clone https://github.com/TheGlitchKing/mind-glaive.git
@@ -172,7 +191,7 @@ node --version
 
 **Step 2: Install globally**
 ```bash
-npm install -g hit-em-with-the-docs
+npm install -g @theglitchking/hit-em-with-the-docs
 ```
 
 **Step 3: Initialize in your project**
@@ -191,6 +210,13 @@ Edit `.documentation/config.yml` to customize:
 **Step 5: Run maintenance**
 ```bash
 hewtd maintain --mode fix
+```
+
+**Alternative: Use NPX (no installation)**
+```bash
+# Run directly without installing
+npx @theglitchking/hit-em-with-the-docs init
+npx @theglitchking/hit-em-with-the-docs maintain --mode fix
 ```
 
 ### Installing mind-glaive
@@ -212,7 +238,17 @@ claude --version
 - **full-stack** (8KB): Web applications
 - **data-science** (6KB): ML/research projects
 
-**Step 4: Install**
+**Step 4a: Install via NPM (Recommended)**
+```bash
+# Global installation
+npm install -g @theglitchking/mind-glaive
+mind-glaive install --scope user --template full-stack
+
+# Or use npx (no global install)
+npx @theglitchking/mind-glaive install --scope user --template full-stack
+```
+
+**Step 4b: Manual Installation (Alternative)**
 ```bash
 git clone https://github.com/TheGlitchKing/mind-glaive.git
 cd mind-glaive
@@ -254,9 +290,26 @@ claude --version
 # Should be v2.0.13 or higher (Note: higher requirement than mind-glaive)
 ```
 
-**Step 2: Install via Claude marketplace**
+**Step 2a: Install via NPM (Recommended)**
+```bash
+# Global installation
+npm install -g @theglitchking/aeon-loop
+aeon-loop install --scope user
+
+# Or use npx (no global install)
+npx @theglitchking/aeon-loop install --scope user
+```
+
+**Step 2b: Install via Claude marketplace (Alternative)**
 ```bash
 /plugin add TheGlitchKing/aeon-loop
+```
+
+**Step 2c: Manual installation (Alternative)**
+```bash
+git clone https://github.com/TheGlitchKing/aeon-loop.git
+cd aeon-loop
+# Follow plugin-specific installation instructions in repo
 ```
 
 **Step 3: Verify installation**
@@ -269,13 +322,6 @@ Check that the following commands are available:
 /pause
 /resume
 /status
-```
-
-**Step 4: (Optional) Manual installation**
-```bash
-git clone https://github.com/TheGlitchKing/aeon-loop.git
-cd aeon-loop
-# Follow plugin-specific installation instructions in repo
 ```
 
 ## Dependency Management
@@ -409,7 +455,14 @@ ls ~/.claude/
 
 ### Update NPM packages
 ```bash
-npm update -g hit-em-with-the-docs
+# Update hit-em-with-the-docs
+npm update -g @theglitchking/hit-em-with-the-docs
+
+# Update mind-glaive
+npm update -g @theglitchking/mind-glaive
+
+# Update aeon-loop (includes aeon-flux)
+npm update -g @theglitchking/aeon-loop
 ```
 
 ### Update Claude plugins
@@ -417,7 +470,11 @@ npm update -g hit-em-with-the-docs
 # Via Claude marketplace (if available)
 /plugin update mind-glaive
 
-# Or manually
+# Or manually via NPM
+npm update -g @theglitchking/mind-glaive
+mind-glaive install --scope user --template full-stack
+
+# Or via git
 cd ~/.claude/plugins/mind-glaive
 git pull
 ```
@@ -432,18 +489,29 @@ cd glitch-kingdom-of-plugins
 
 ### Uninstall NPM packages
 ```bash
-npm uninstall -g hit-em-with-the-docs
+# Uninstall hit-em-with-the-docs
+npm uninstall -g @theglitchking/hit-em-with-the-docs
+
+# Uninstall mind-glaive
+npm uninstall -g @theglitchking/mind-glaive
+
+# Uninstall aeon-loop
+npm uninstall -g @theglitchking/aeon-loop
 ```
 
 ### Uninstall Claude plugins
 ```bash
-# User scope
+# Via NPM CLI (if installed via NPM)
+mind-glaive uninstall
+aeon-loop uninstall
+
+# Manual removal - User scope
 rm -rf ~/.claude/
 
-# Project scope
+# Manual removal - Project scope
 rm -rf ./.claude/
 
-# Or use plugin uninstaller if available
+# Or use plugin uninstaller script
 cd mind-glaive
 ./uninstall.sh
 ```

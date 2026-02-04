@@ -20,7 +20,7 @@ purpose: This documentation system uses a hierarchical 15-domain structure for
   optimal organization and discoverability.
 estimated_read_time: 2 minutes
 word_count: 250
-last_validated: 2026-02-03
+last_validated: 2026-02-04
 backlinks: []
 ---
 
