@@ -235,7 +235,7 @@
       "name": "gimme-the-lint",
       "displayName": "Gimme The Lint",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Progressive linting with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
       "author": {
         "name": "TheGlitchKing"

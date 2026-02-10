@@ -3,7 +3,7 @@
 > Official marketplace for TheGlitchKing's Claude Code plugins and development tools
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Plugins](https://img.shields.io/badge/Plugins-4-blue)](./catalog/index.md)
+[![Plugins](https://img.shields.io/badge/Plugins-5-blue)](./catalog/index.md)
 
 ## Overview
 
@@ -66,6 +66,18 @@ Action over explanation - tight feedback loops with intelligent context preserva
 
 [Learn More →](https://github.com/TheGlitchKing/aeon-flux)
 
+### 🔍 [Gimme The Lint](https://github.com/TheGlitchKing/gimme-the-lint)
+**Progressive Linting System**
+
+Progressive linting that only blocks on new violations, not legacy code. Baseline existing issues and enforce clean code going forward.
+
+- **Type**: Claude Native Plugin + CLI Tool + GitHub Action
+- **Status**: Production Ready
+- **Installation**: `npm install -g @theglitchking/gimme-the-lint` or `/plugin install TheGlitchKing/gimme-the-lint`
+- **Features**: Directory-chunked baselines, drift detection, auto-healing, monorepo support (Python + JS/TS), git hooks
+
+[Learn More →](https://github.com/TheGlitchKing/gimme-the-lint)
+
 ## Quick Start
 
 ### Installation Options
@@ -94,7 +106,7 @@ npm install -g @theglitchking/hit-em-with-the-docs
 npx @theglitchking/hit-em-with-the-docs init
 ```
 
-**For Claude Plugins (mind-glaive, aeon-loop):**
+**For Claude Plugins (mind-glaive, aeon-loop, gimme-the-lint):**
 ```bash
 # Via NPM
 npm install -g @theglitchking/mind-glaive
@@ -103,9 +115,13 @@ mind-glaive install --scope user --template full-stack
 npm install -g @theglitchking/aeon-loop
 aeon-loop install --scope user
 
+npm install -g @theglitchking/gimme-the-lint
+gimme-the-lint install
+
 # Or via NPX (no install)
 npx @theglitchking/mind-glaive install --scope user --template full-stack
 npx @theglitchking/aeon-loop install --scope user
+npx @theglitchking/gimme-the-lint install
 ```
 
 #### Option 3: Install via Claude Marketplace
@@ -114,6 +130,7 @@ npx @theglitchking/aeon-loop install --scope user
 # In Claude Code
 /plugin install TheGlitchKing/mind-glaive
 /plugin add TheGlitchKing/aeon-loop
+/plugin install TheGlitchKing/gimme-the-lint
 ```
 
 #### Option 4: Manual Installation
@@ -155,6 +172,7 @@ Tools that enhance development workflows and efficiency
 - mind-glaive
 - aeon-loop
 - aeon-flux
+- gimme-the-lint
 
 ### 🤖 Automation
 Tools for automating repetitive tasks
@@ -173,6 +191,7 @@ Tools for automating repetitive tasks
 - **hit-em-with-the-docs**: Node.js 20+
 - **mind-glaive**: Node.js 16+, Claude Code 1.0+, Optional: Python 3.9+ (for MCP servers), Optional: Ollama
 - **aeon-loop/flux**: Node.js 16+, Claude Code 2.0.13+
+- **gimme-the-lint**: Node.js 18+, Optional: Python 3.8+ (for backend linting)
 
 **Manual/Marketplace Installation**:
 - **mind-glaive**: Claude Code 1.0+, Bash, Python 3.9+ (for MCP servers), Optional: Ollama
@@ -229,6 +248,7 @@ MIT License - see individual plugin repositories for their specific licenses.
 npm update -g @theglitchking/hit-em-with-the-docs
 npm update -g @theglitchking/mind-glaive
 npm update -g @theglitchking/aeon-loop
+npm update -g @theglitchking/gimme-the-lint
 
 # Or update individually
 npm update -g @theglitchking/[plugin-name]
