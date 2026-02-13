@@ -284,6 +284,57 @@
       "features": {
         "commands": ["/lint", "/lint:status", "/lint:baseline"]
       }
+    },
+    {
+      "id": "persistent-planning",
+      "name": "persistent-planning",
+      "displayName": "Persistent Planning",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Persistent markdown-based planning with task directories, progress tracking, and context engineering for multi-step Claude Code workflows",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "persistent-planning",
+        "url": "https://github.com/TheGlitchKing/persistent-planning"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/persistent-planning"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/persistent-planning"
+          },
+          {
+            "type": "manual",
+            "steps": [
+              "git clone https://github.com/TheGlitchKing/persistent-planning.git",
+              "cd persistent-planning",
+              "./install.sh --scope user"
+            ]
+          }
+        ],
+        "requirements": {
+          "claude-code": ">=1.0.0",
+          "bash": true
+        }
+      },
+      "category": "productivity",
+      "tags": ["planning", "persistence", "context-engineering", "markdown", "task-tracking"],
+      "keywords": ["planning", "persistent", "markdown", "context", "manus", "task-plan", "working-memory", "goal-tracking"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/persistent-planning",
+      "status": "production-ready",
+      "features": {
+        "skills": ["/start-planning"],
+        "commands": ["/start-planning"]
+      }
     }
   ],
   "categories": {

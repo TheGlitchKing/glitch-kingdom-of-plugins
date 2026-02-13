@@ -1,0 +1,227 @@
+{
+  "marketplace": {
+    "name": "glitch-kingdom-of-plugins",
+    "version": "1.0.0",
+    "description": "Official marketplace for TheGlitchKing's Claude Code plugins and development tools"
+  },
+  "plugins": [
+    {
+      "id": "hit-em-with-the-docs",
+      "name": "hit-em-with-the-docs",
+      "displayName": "Hit 'Em With The Docs",
+      "type": "cli-tool",
+      "version": "2.0.0",
+      "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
+      "category": "documentation",
+      "tags": [
+        "documentation",
+        "cli",
+        "github-action",
+        "automation",
+        "self-managing",
+        "claude-plugin"
+      ],
+      "keywords": [
+        "documentation",
+        "github-action",
+        "docs",
+        "markdown",
+        "automation",
+        "cli",
+        "hierarchical",
+        "metadata",
+        "pattern-discovery",
+        "code-quality",
+        "self-managing",
+        "dsmp"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
+      "repository": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
+      "installation": {
+        "type": "npm",
+        "command": "npm install -g @theglitchking/hit-em-with-the-docs"
+      }
+    },
+    {
+      "id": "mind-glaive",
+      "name": "mind-glaive",
+      "displayName": "Mind Glaive",
+      "type": "claude-plugin",
+      "version": "1.1.0",
+      "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
+      "category": "productivity",
+      "tags": [
+        "context-management",
+        "memory",
+        "learning",
+        "automation",
+        "hooks",
+        "subagents"
+      ],
+      "keywords": [
+        "context",
+        "memory",
+        "persistence",
+        "hooks",
+        "subagents",
+        "knowledge-base",
+        "claude-code"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/mind-glaive",
+      "repository": "https://github.com/TheGlitchKing/mind-glaive",
+      "installation": {
+        "type": "npm",
+        "command": "npm install -g @theglitchking/mind-glaive && mind-glaive install --scope user --template full-stack"
+      }
+    },
+    {
+      "id": "aeon-loop",
+      "name": "aeon-loop",
+      "displayName": "Aeon Loop",
+      "type": "claude-plugin",
+      "version": "1.1.0",
+      "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery. Includes bundled aeon-flux.",
+      "category": "productivity",
+      "tags": [
+        "automation",
+        "autonomous",
+        "loop",
+        "task-execution",
+        "orchestration"
+      ],
+      "keywords": [
+        "loop",
+        "autonomous",
+        "task-execution",
+        "context-persistence",
+        "subagents"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/aeon-loop",
+      "repository": "https://github.com/TheGlitchKing/aeon-loop",
+      "installation": {
+        "type": "npm",
+        "command": "npm install -g @theglitchking/aeon-loop && aeon-loop install --scope user"
+      }
+    },
+    {
+      "id": "aeon-flux",
+      "name": "aeon-flux",
+      "displayName": "Aeon Flux",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Bash Loop operating mode - action over explanation, tight feedback loops, intelligent context preservation",
+      "category": "productivity",
+      "tags": [
+        "bash-loop",
+        "action-oriented",
+        "subagent-control",
+        "context-preservation"
+      ],
+      "keywords": [
+        "bash-loop",
+        "feedback",
+        "action",
+        "tight-loop",
+        "efficiency"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/aeon-flux",
+      "repository": "https://github.com/TheGlitchKing/aeon-flux",
+      "installation": {
+        "type": "included-in",
+        "parent": "aeon-loop",
+        "note": "Included as part of aeon-loop installation"
+      }
+    },
+    {
+      "id": "gimme-the-lint",
+      "name": "gimme-the-lint",
+      "displayName": "Gimme The Lint",
+      "type": "claude-plugin",
+      "version": "1.0.1",
+      "description": "Progressive linting with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
+      "category": "productivity",
+      "tags": [
+        "linting",
+        "progressive-linting",
+        "eslint",
+        "ruff",
+        "python",
+        "monorepo",
+        "git-hooks",
+        "drift-detection",
+        "github-action"
+      ],
+      "keywords": [
+        "linting",
+        "progressive",
+        "baseline",
+        "eslint",
+        "ruff",
+        "python",
+        "javascript",
+        "typescript",
+        "monorepo",
+        "drift-detection",
+        "auto-healing"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/gimme-the-lint",
+      "repository": "https://github.com/TheGlitchKing/gimme-the-lint",
+      "installation": {
+        "type": "npm",
+        "command": "npm install --save-dev @theglitchking/gimme-the-lint && npx gimme-the-lint install"
+      }
+    },
+    {
+      "id": "persistent-planning",
+      "name": "persistent-planning",
+      "displayName": "Persistent Planning",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Persistent markdown-based planning with task directories, progress tracking, and context engineering for multi-step Claude Code workflows",
+      "category": "productivity",
+      "tags": [
+        "planning",
+        "persistence",
+        "context-engineering",
+        "markdown",
+        "task-tracking"
+      ],
+      "keywords": [
+        "planning",
+        "persistent",
+        "markdown",
+        "context",
+        "manus",
+        "task-plan",
+        "working-memory",
+        "goal-tracking"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/persistent-planning",
+      "repository": "https://github.com/TheGlitchKing/persistent-planning",
+      "installation": {
+        "type": "claude-marketplace",
+        "command": "/plugin install TheGlitchKing/persistent-planning"
+      }
+    }
+  ],
+  "categories": {
+    "documentation": {
+      "name": "Documentation",
+      "description": "Tools for managing, generating, and maintaining documentation"
+    },
+    "productivity": {
+      "name": "Productivity",
+      "description": "Tools that enhance development workflows and efficiency"
+    },
+    "automation": {
+      "name": "Automation",
+      "description": "Tools for automating repetitive tasks"
+    }
+  }
+}

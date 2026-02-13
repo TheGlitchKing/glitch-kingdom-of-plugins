@@ -3,7 +3,7 @@
 > Official marketplace for TheGlitchKing's Claude Code plugins and development tools
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Plugins](https://img.shields.io/badge/Plugins-5-blue)](./catalog/index.md)
+[![Plugins](https://img.shields.io/badge/Plugins-6-blue)](./catalog/index.md)
 
 ## Overview
 
@@ -65,6 +65,18 @@ Action over explanation - tight feedback loops with intelligent context preserva
 - **Features**: Action-first mode, error recovery, attention markers, checkpoint/resume
 
 [Learn More →](https://github.com/TheGlitchKing/aeon-flux)
+
+### 📋 [Persistent Planning](./plugins/persistent-planning)
+**Persistent Markdown-Based Planning**
+
+Use on-disk markdown files as "working memory" for planning, progress tracking, and knowledge storage. Based on Manus AI context engineering principles.
+
+- **Type**: Claude Native Plugin
+- **Status**: Production Ready
+- **Installation**: `git clone ... && ./install.sh --scope user` or `/plugin install TheGlitchKing/persistent-planning`
+- **Features**: Task directories, session persistence, concurrent tasks, `/start-planning` command
+
+[Learn More →](https://github.com/TheGlitchKing/persistent-planning)
 
 ### 🔍 [Gimme The Lint](https://github.com/TheGlitchKing/gimme-the-lint)
 **Progressive Linting System**
@@ -173,6 +185,7 @@ Tools that enhance development workflows and efficiency
 - aeon-loop
 - aeon-flux
 - gimme-the-lint
+- persistent-planning
 
 ### 🤖 Automation
 Tools for automating repetitive tasks

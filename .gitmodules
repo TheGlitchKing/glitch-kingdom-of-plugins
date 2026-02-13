@@ -7,3 +7,6 @@
 [submodule "plugins/aeon-flux"]
 	path = plugins/aeon-flux
 	url = https://github.com/TheGlitchKing/aeon-flux.git
+[submodule "plugins/persistent-planning"]
+	path = plugins/persistent-planning
+	url = https://github.com/TheGlitchKing/persistent-planning.git
