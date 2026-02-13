@@ -308,6 +308,14 @@
       "installation": {
         "methods": [
           {
+            "type": "npm",
+            "command": "npm install -g @theglitchking/persistent-planning && persistent-planning install --scope user"
+          },
+          {
+            "type": "npx",
+            "command": "npx @theglitchking/persistent-planning install --scope user"
+          },
+          {
             "type": "claude-marketplace",
             "command": "/plugin install TheGlitchKing/persistent-planning"
           },

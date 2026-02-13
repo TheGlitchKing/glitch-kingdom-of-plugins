@@ -73,7 +73,7 @@ Use on-disk markdown files as "working memory" for planning, progress tracking, 
 
 - **Type**: Claude Native Plugin
 - **Status**: Production Ready
-- **Installation**: `git clone ... && ./install.sh --scope user` or `/plugin install TheGlitchKing/persistent-planning`
+- **Installation**: `npm install -g @theglitchking/persistent-planning` or `/plugin install TheGlitchKing/persistent-planning`
 - **Features**: Task directories, session persistence, concurrent tasks, `/start-planning` command
 
 [Learn More →](https://github.com/TheGlitchKing/persistent-planning)
