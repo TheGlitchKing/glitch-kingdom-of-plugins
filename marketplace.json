@@ -286,6 +286,67 @@
       }
     },
     {
+      "id": "babel-fish",
+      "name": "babel-fish",
+      "displayName": "Babel Fish",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "babel-fish",
+        "url": "https://github.com/TheGlitchKing/babel-fish"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/babel-fish"
+      },
+      "installation": {
+        "trigger": "bash .claude/install.sh",
+        "methods": [
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/babel-fish"
+          },
+          {
+            "type": "manual",
+            "steps": [
+              "Clone or copy the plugin into your project's .claude/ directory",
+              "Run: bash .claude/install.sh",
+              "Optionally run: bash .githooks/install.sh"
+            ]
+          }
+        ],
+        "requirements": {
+          "claude-code": ">=1.0.0",
+          "python": ">=3.8",
+          "bash": true,
+          "optional": {
+            "pyyaml": "For YAML parsing in docker-compose files (falls back to regex)"
+          }
+        }
+      },
+      "category": "developer-tools",
+      "tags": ["codebase-context", "project-map", "vocabulary", "developer-skill", "introspection", "drift-management"],
+      "keywords": ["project map", "babel fish", "vocabulary translation", "developer context", "code introspection", "auto-generated docs", "semantic drift", "technical translator"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/babel-fish",
+      "status": "production-ready",
+      "features": {
+        "hooks": ["pre-commit (auto-regenerate project map on source file changes)"],
+        "skills": ["/<project-slug>-developer-skill"],
+        "commands": [
+          "python .claude/project-map/generate.py --force",
+          "python .claude/project-map/grader.py",
+          "python .claude/project-map/mine-sessions.py"
+        ]
+      }
+    },
+    {
       "id": "persistent-planning",
       "name": "persistent-planning",
       "displayName": "Persistent Planning",
@@ -346,6 +407,10 @@
     }
   ],
   "categories": {
+    "developer-tools": {
+      "name": "Developer Tools",
+      "description": "Tools for codebase introspection, context engineering, and developer workflow automation"
+    },
     "documentation": {
       "name": "Documentation",
       "description": "Tools for managing, generating, and maintaining documentation"

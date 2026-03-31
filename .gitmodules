@@ -10,3 +10,6 @@
 [submodule "plugins/persistent-planning"]
 	path = plugins/persistent-planning
 	url = https://github.com/TheGlitchKing/persistent-planning.git
+[submodule "plugins/babel-fish"]
+	path = plugins/babel-fish
+	url = https://github.com/TheGlitchKing/babel-fish.git

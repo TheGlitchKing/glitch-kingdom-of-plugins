@@ -3,7 +3,7 @@
 > Official marketplace for TheGlitchKing's Claude Code plugins and development tools
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Plugins](https://img.shields.io/badge/Plugins-6-blue)](./catalog/index.md)
+[![Plugins](https://img.shields.io/badge/Plugins-7-blue)](./catalog/index.md)
 
 ## Overview
 
@@ -77,6 +77,18 @@ Use on-disk markdown files as "working memory" for planning, progress tracking, 
 - **Features**: Task directories, session persistence, concurrent tasks, `/start-planning` command
 
 [Learn More →](https://github.com/TheGlitchKing/persistent-planning)
+
+### 🗺️ [Babel Fish](./plugins/babel-fish)
+**Auto-Generated Project Map + Vocabulary Translator**
+
+Gives Claude instant, accurate knowledge of every route, model, service, feature, and infrastructure element in any codebase. Maps plain-English phrases to exact file paths, mines past sessions for learned aliases, and self-updates on every commit.
+
+- **Type**: Claude Native Plugin
+- **Status**: Production Ready
+- **Installation**: `bash .claude/install.sh` or `/plugin install TheGlitchKing/babel-fish`
+- **Features**: 19-section project map, vocabulary translator, session-mined aliases, iterative 90% quality grading, pre-commit hook
+
+[Learn More →](https://github.com/TheGlitchKing/babel-fish)
 
 ### 🔍 [Gimme The Lint](https://github.com/TheGlitchKing/gimme-the-lint)
 **Progressive Linting System**
@@ -162,6 +174,7 @@ cat catalog/index.md
 ```
 
 Or browse by category:
+- [Developer Tools](./catalog/by-category/developer-tools.md)
 - [Documentation Tools](./catalog/by-category/documentation.md)
 - [Productivity Tools](./catalog/by-category/productivity.md)
 - [Automation Tools](./catalog/by-category/automation.md)
