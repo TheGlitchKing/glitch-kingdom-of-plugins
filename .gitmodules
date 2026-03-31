@@ -13,3 +13,9 @@
 [submodule "plugins/babel-fish"]
 	path = plugins/babel-fish
 	url = https://github.com/TheGlitchKing/babel-fish.git
+[submodule "plugins/gimme-the-lint"]
+	path = plugins/gimme-the-lint
+	url = https://github.com/TheGlitchKing/gimme-the-lint.git
+[submodule "plugins/aeon-loop"]
+	path = plugins/aeon-loop
+	url = https://github.com/TheGlitchKing/aeon-loop.git
