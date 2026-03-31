@@ -177,6 +177,40 @@
       }
     },
     {
+      "id": "babel-fish",
+      "name": "babel-fish",
+      "displayName": "Babel Fish",
+      "type": "claude-plugin",
+      "version": "1.0.0",
+      "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.",
+      "category": "developer-tools",
+      "tags": [
+        "codebase-context",
+        "project-map",
+        "vocabulary",
+        "developer-skill",
+        "introspection",
+        "drift-management"
+      ],
+      "keywords": [
+        "project map",
+        "babel fish",
+        "vocabulary translation",
+        "developer context",
+        "code introspection",
+        "auto-generated docs",
+        "semantic drift",
+        "technical translator"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/babel-fish",
+      "repository": "https://github.com/TheGlitchKing/babel-fish",
+      "installation": {
+        "type": "claude-marketplace",
+        "command": "/plugin install TheGlitchKing/babel-fish"
+      }
+    },
+    {
       "id": "persistent-planning",
       "name": "persistent-planning",
       "displayName": "Persistent Planning",
@@ -205,12 +239,16 @@
       "homepage": "https://github.com/TheGlitchKing/persistent-planning",
       "repository": "https://github.com/TheGlitchKing/persistent-planning",
       "installation": {
-        "type": "claude-marketplace",
-        "command": "/plugin install TheGlitchKing/persistent-planning"
+        "type": "npm",
+        "command": "npm install -g @theglitchking/persistent-planning && persistent-planning install --scope user"
       }
     }
   ],
   "categories": {
+    "developer-tools": {
+      "name": "Developer Tools",
+      "description": "Tools for codebase introspection, context engineering, and developer workflow automation"
+    },
     "documentation": {
       "name": "Documentation",
       "description": "Tools for managing, generating, and maintaining documentation"

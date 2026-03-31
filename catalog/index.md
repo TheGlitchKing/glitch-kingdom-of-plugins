@@ -2,7 +2,7 @@
 
 **Marketplace**: glitch-kingdom-of-plugins v1.0.0
 **Description**: Official marketplace for TheGlitchKing's Claude Code plugins and development tools
-**Total Plugins**: 6
+**Total Plugins**: 7
 
 ---
 
@@ -78,6 +78,20 @@ Progressive linting with directory-chunked baselines, drift detection, and auto-
 
 **Installation**:
 
+### Babel Fish
+
+**ID**: `babel-fish`
+**Type**: claude-plugin
+**Version**: 1.0.0
+**Status**: production-ready
+**Category**: developer-tools
+
+Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.
+
+**Homepage**: https://github.com/TheGlitchKing/babel-fish
+
+**Installation**:
+
 ### Persistent Planning
 
 **ID**: `persistent-planning`
@@ -129,6 +143,14 @@ Persistent markdown-based planning with task directories, progress tracking, and
 
 ---
 
+- **Claude**: `/plugin install TheGlitchKing/babel-fish`
+
+**Tags**: codebase-context, project-map, vocabulary, developer-skill, introspection, drift-management
+
+---
+
+- **NPM**: `npm install -g @theglitchking/persistent-planning && persistent-planning install --scope user`
+- **NPX**: `npx @theglitchking/persistent-planning install --scope user`
 - **Claude**: `/plugin install TheGlitchKing/persistent-planning`
 
 **Tags**: planning, persistence, context-engineering, markdown, task-tracking
@@ -138,6 +160,7 @@ Persistent markdown-based planning with task directories, progress tracking, and
 
 ## By Category
 
+- **[Developer Tools](./by-category/developer-tools.md)**: Tools for codebase introspection, context engineering, and developer workflow automation
 - **[Documentation](./by-category/documentation.md)**: Tools for managing, generating, and maintaining documentation
 - **[Productivity](./by-category/productivity.md)**: Tools that enhance development workflows and efficiency
 - **[Automation](./by-category/automation.md)**: Tools for automating repetitive tasks
