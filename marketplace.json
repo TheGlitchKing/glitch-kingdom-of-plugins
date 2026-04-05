@@ -404,6 +404,55 @@
         "skills": ["/start-planning"],
         "commands": ["/start-planning"]
       }
+    },
+    {
+      "id": "semantic-pages",
+      "name": "semantic-pages",
+      "displayName": "Semantic Pages",
+      "type": "mcp-server",
+      "version": "0.1.0",
+      "description": "Semantic search + knowledge graph MCP server for any folder of markdown files. 21 tools: vector search, text search, graph traversal, CRUD, frontmatter/tag management. No Docker, no Python, no Obsidian.",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "semantic-pages",
+        "url": "https://github.com/TheGlitchKing/semantic-pages"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/semantic-pages"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "npm",
+            "command": "npm install -g semantic-pages"
+          },
+          {
+            "type": "npx",
+            "command": "npx semantic-pages --notes ./vault"
+          },
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/semantic-pages"
+          }
+        ],
+        "requirements": {
+          "node": ">=18.0.0"
+        }
+      },
+      "category": "search",
+      "tags": ["mcp-server", "semantic-search", "knowledge-graph", "markdown", "vector-search", "embeddings", "wikilinks"],
+      "keywords": ["mcp", "model-context-protocol", "semantic-search", "knowledge-graph", "markdown", "obsidian", "vector-search", "embeddings", "wikilinks", "claude", "llm", "notes", "vault", "frontmatter", "backlinks"],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/semantic-pages",
+      "status": "beta",
+      "features": {
+        "mcpServers": ["semantic-pages"]
+      }
     }
   ],
   "categories": {
@@ -422,6 +471,10 @@
     "automation": {
       "name": "Automation",
       "description": "Tools for automating repetitive tasks"
+    },
+    "search": {
+      "name": "Search & Knowledge",
+      "description": "Tools for semantic search, knowledge graphs, and information retrieval over markdown and code"
     }
   }
 }
