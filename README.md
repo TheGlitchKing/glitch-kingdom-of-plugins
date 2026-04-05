@@ -3,7 +3,7 @@
 > Official marketplace for TheGlitchKing's Claude Code plugins and development tools
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Plugins](https://img.shields.io/badge/Plugins-7-blue)](./catalog/index.md)
+[![Plugins](https://img.shields.io/badge/Plugins-8-blue)](./catalog/index.md)
 
 ## Overview
 
@@ -102,6 +102,18 @@ Progressive linting that only blocks on new violations, not legacy code. Baselin
 
 [Learn More →](https://github.com/TheGlitchKing/gimme-the-lint)
 
+### 📄 [Semantic Pages](./plugins/semantic-pages)
+**Semantic Search + Knowledge Graph MCP Server**
+
+Give Claude semantic search, knowledge graph traversal, and full CRUD over any folder of markdown files. Replaces the Obsidian + Smart Connections + MCP plugin stack with a single `npx` command.
+
+- **Type**: MCP Server
+- **Status**: Beta
+- **Installation**: `npx semantic-pages --notes ./vault`
+- **Features**: 21 MCP tools, local embeddings (no API key), wikilink graph, hybrid search, frontmatter/tag management, file watcher
+
+[Learn More →](https://github.com/TheGlitchKing/semantic-pages)
+
 ## Quick Start
 
 ### Installation Options
@@ -128,6 +140,12 @@ npm install -g @theglitchking/hit-em-with-the-docs
 
 # Or via NPX (no install)
 npx @theglitchking/hit-em-with-the-docs init
+```
+
+**For MCP Servers (semantic-pages):**
+```bash
+# Add to .mcp.json in any repo
+npx semantic-pages --notes ./vault
 ```
 
 **For Claude Plugins (mind-glaive, aeon-loop, gimme-the-lint):**
@@ -178,6 +196,7 @@ Or browse by category:
 - [Documentation Tools](./catalog/by-category/documentation.md)
 - [Productivity Tools](./catalog/by-category/productivity.md)
 - [Automation Tools](./catalog/by-category/automation.md)
+- [Search & Knowledge](./catalog/by-category/search.md)
 
 ## Documentation
 
@@ -205,6 +224,10 @@ Tools for automating repetitive tasks
 - aeon-loop
 - hit-em-with-the-docs
 
+### 🔎 Search & Knowledge
+Tools for semantic search, knowledge graphs, and information retrieval
+- semantic-pages
+
 ## Requirements
 
 ### For Marketplace Usage
@@ -218,6 +241,7 @@ Tools for automating repetitive tasks
 - **mind-glaive**: Node.js 16+, Claude Code 1.0+, Optional: Python 3.9+ (for MCP servers), Optional: Ollama
 - **aeon-loop/flux**: Node.js 16+, Claude Code 2.0.13+
 - **gimme-the-lint**: Node.js 18+, Optional: Python 3.8+ (for backend linting)
+- **semantic-pages**: Node.js 18+
 
 **Manual/Marketplace Installation**:
 - **mind-glaive**: Claude Code 1.0+, Bash, Python 3.9+ (for MCP servers), Optional: Ollama
