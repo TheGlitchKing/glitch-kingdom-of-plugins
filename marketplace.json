@@ -18,7 +18,7 @@
       "name": "hit-em-with-the-docs",
       "displayName": "Hit 'Em With The Docs",
       "type": "cli-tool",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
       "author": {
         "name": "TheGlitchKing"
@@ -235,7 +235,7 @@
       "name": "gimme-the-lint",
       "displayName": "Gimme The Lint",
       "type": "claude-plugin",
-      "version": "1.0.1",
+      "version": "1.1.2",
       "description": "Progressive linting with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
       "author": {
         "name": "TheGlitchKing"
@@ -290,7 +290,7 @@
       "name": "babel-fish",
       "displayName": "Babel Fish",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.",
       "author": {
         "name": "TheGlitchKing"
@@ -302,27 +302,34 @@
         "url": "https://github.com/TheGlitchKing/babel-fish"
       },
       "source": {
-        "type": "submodule",
-        "path": "./plugins/babel-fish"
+        "type": "npm",
+        "package": "@theglitchking/babel-fish"
       },
       "installation": {
-        "trigger": "bash .claude/install.sh",
         "methods": [
           {
+            "type": "npm",
+            "command": "npm install -g @theglitchking/babel-fish && babel-fish init"
+          },
+          {
+            "type": "npx",
+            "command": "npx @theglitchking/babel-fish init"
+          },
+          {
             "type": "claude-marketplace",
-            "command": "/plugin install TheGlitchKing/babel-fish"
+            "command": "/plugin install babel-fish@glitch-kingdom-of-plugins"
           },
           {
             "type": "manual",
             "steps": [
-              "Clone or copy the plugin into your project's .claude/ directory",
-              "Run: bash .claude/install.sh",
-              "Optionally run: bash .githooks/install.sh"
+              "git clone https://github.com/TheGlitchKing/babel-fish.git",
+              "bash babel-fish/.claude/install.sh"
             ]
           }
         ],
         "requirements": {
           "claude-code": ">=1.0.0",
+          "node": ">=16.0.0",
           "python": ">=3.8",
           "bash": true,
           "optional": {
