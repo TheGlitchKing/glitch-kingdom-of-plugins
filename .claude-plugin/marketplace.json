@@ -1,0 +1,128 @@
+{
+  "name": "glitch-kingdom-of-plugins",
+  "owner": {
+    "name": "TheGlitchKing",
+    "email": "theglitchking@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Official marketplace for TheGlitchKing's Claude Code plugins and development tools",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "hit-em-with-the-docs",
+      "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
+      "version": "2.0.1",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "homepage": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
+      "repository": "https://github.com/TheGlitchKing/hit-em-with-the-docs.git",
+      "license": "MIT",
+      "category": "documentation",
+      "tags": ["documentation", "automation", "hierarchical", "pattern-discovery", "self-managing"],
+      "keywords": ["documentation", "automation", "docs", "markdown", "hierarchical", "metadata"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/hit-em-with-the-docs"
+      },
+      "strict": true
+    },
+    {
+      "name": "babel-fish",
+      "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context.",
+      "version": "1.0.2",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "homepage": "https://github.com/TheGlitchKing/babel-fish",
+      "repository": "https://github.com/TheGlitchKing/babel-fish.git",
+      "license": "MIT",
+      "category": "developer-tools",
+      "tags": ["codebase-context", "project-map", "vocabulary", "introspection", "drift-management"],
+      "keywords": ["project-map", "vocabulary", "developer-context", "introspection", "drift-management"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/babel-fish"
+      },
+      "strict": true
+    },
+    {
+      "name": "gimme-the-lint",
+      "description": "Progressive linting system with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
+      "version": "1.1.2",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "homepage": "https://github.com/TheGlitchKing/gimme-the-lint",
+      "repository": "https://github.com/TheGlitchKing/gimme-the-lint.git",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["linting", "progressive", "eslint", "ruff", "monorepo", "drift-detection"],
+      "keywords": ["linting", "progressive", "baseline", "eslint", "ruff", "monorepo", "drift-detection"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/gimme-the-lint"
+      },
+      "strict": true
+    },
+    {
+      "name": "mind-glaive",
+      "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
+      "version": "1.1.0",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "homepage": "https://github.com/TheGlitchKing/mind-glaive",
+      "repository": "https://github.com/TheGlitchKing/mind-glaive.git",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["context-management", "memory", "learning", "hooks", "subagents"],
+      "keywords": ["context", "memory", "persistence", "hooks", "subagents", "knowledge-base"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/mind-glaive"
+      },
+      "strict": true
+    },
+    {
+      "name": "aeon-loop",
+      "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery. Includes bundled aeon-flux bash-loop mode.",
+      "version": "1.1.1",
+      "author": {
+        "name": "TheGlitchKing",
+        "email": "theglitchking@users.noreply.github.com"
+      },
+      "homepage": "https://github.com/TheGlitchKing/aeon-loop",
+      "repository": "https://github.com/TheGlitchKing/aeon-loop.git",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["automation", "autonomous", "loop", "task-execution", "orchestration"],
+      "keywords": ["loop", "autonomous", "task-execution", "context-persistence", "subagents"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/aeon-loop"
+      },
+      "strict": true
+    },
+    {
+      "name": "persistent-planning",
+      "description": "Persistent markdown-based planning with task directories, progress tracking, and context engineering for multi-step Claude Code workflows",
+      "version": "1.0.1",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "homepage": "https://github.com/TheGlitchKing/persistent-planning",
+      "repository": "https://github.com/TheGlitchKing/persistent-planning.git",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": ["planning", "persistence", "context-engineering", "markdown", "task-tracking"],
+      "keywords": ["planning", "persistent", "markdown", "context", "task-plan", "working-memory"],
+      "source": {
+        "source": "npm",
+        "package": "@theglitchking/persistent-planning"
+      },
+      "strict": true
+    }
+  ]
+}
