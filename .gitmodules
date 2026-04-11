@@ -16,9 +16,6 @@
 [submodule "plugins/gimme-the-lint"]
 	path = plugins/gimme-the-lint
 	url = https://github.com/TheGlitchKing/gimme-the-lint.git
-[submodule "plugins/aeon-loop"]
-	path = plugins/aeon-loop
-	url = https://github.com/TheGlitchKing/aeon-loop.git
 [submodule "plugins/semantic-pages"]
 	path = plugins/semantic-pages
 	url = https://github.com/TheGlitchKing/semantic-pages.git
