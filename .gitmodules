@@ -19,3 +19,6 @@
 [submodule "plugins/semantic-pages"]
 	path = plugins/semantic-pages
 	url = https://github.com/TheGlitchKing/semantic-pages.git
+[submodule "plugins/aeon-loop"]
+	path = plugins/aeon-loop
+	url = https://github.com/TheGlitchKing/aeon-loop.git
