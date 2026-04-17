@@ -57,13 +57,36 @@
         }
       },
       "category": "documentation",
-      "tags": ["documentation", "cli", "github-action", "automation", "self-managing", "claude-plugin"],
-      "keywords": ["documentation", "github-action", "docs", "markdown", "automation", "cli", "hierarchical", "metadata", "pattern-discovery", "code-quality", "self-managing", "dsmp"],
+      "tags": [
+        "documentation",
+        "cli",
+        "github-action",
+        "automation",
+        "self-managing",
+        "claude-plugin"
+      ],
+      "keywords": [
+        "documentation",
+        "github-action",
+        "docs",
+        "markdown",
+        "automation",
+        "cli",
+        "hierarchical",
+        "metadata",
+        "pattern-discovery",
+        "code-quality",
+        "self-managing",
+        "dsmp"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/hit-em-with-the-docs",
       "status": "production-ready",
       "features": {
-        "commands": ["/docs", "/discover"]
+        "commands": [
+          "/docs",
+          "/discover"
+        ]
       }
     },
     {
@@ -119,15 +142,47 @@
         }
       },
       "category": "productivity",
-      "tags": ["context-management", "memory", "learning", "automation", "hooks", "subagents"],
-      "keywords": ["context", "memory", "persistence", "hooks", "subagents", "knowledge-base", "claude-code"],
+      "tags": [
+        "context-management",
+        "memory",
+        "learning",
+        "automation",
+        "hooks",
+        "subagents"
+      ],
+      "keywords": [
+        "context",
+        "memory",
+        "persistence",
+        "hooks",
+        "subagents",
+        "knowledge-base",
+        "claude-code"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/mind-glaive",
       "status": "production-ready",
       "features": {
-        "hooks": ["SessionStart", "SessionEnd", "PreToolUse", "PostToolUse", "PreCompact"],
-        "commands": ["/context/status", "/context/optimize", "/context/reset", "/learn/from-session", "/learn/from-codebase", "/resume/last-task", "/resume/branch"],
-        "mcpServers": ["project-kb", "codebase-rag"]
+        "hooks": [
+          "SessionStart",
+          "SessionEnd",
+          "PreToolUse",
+          "PostToolUse",
+          "PreCompact"
+        ],
+        "commands": [
+          "/context/status",
+          "/context/optimize",
+          "/context/reset",
+          "/learn/from-session",
+          "/learn/from-codebase",
+          "/resume/last-task",
+          "/resume/branch"
+        ],
+        "mcpServers": [
+          "project-kb",
+          "codebase-rag"
+        ]
       }
     },
     {
@@ -172,18 +227,47 @@
         }
       },
       "category": "productivity",
-      "tags": ["automation", "autonomous", "loop", "task-execution", "orchestration"],
-      "keywords": ["loop", "autonomous", "task-execution", "context-persistence", "subagents"],
+      "tags": [
+        "automation",
+        "autonomous",
+        "loop",
+        "task-execution",
+        "orchestration"
+      ],
+      "keywords": [
+        "loop",
+        "autonomous",
+        "task-execution",
+        "context-persistence",
+        "subagents"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/aeon-loop",
       "status": "production-ready",
       "dependencies": {
-        "includes": ["aeon-flux"],
-        "recommends": ["mind-glaive"]
+        "includes": [
+          "aeon-flux"
+        ],
+        "recommends": [
+          "mind-glaive"
+        ]
       },
       "features": {
-        "hooks": ["Stop", "SessionStart", "PreToolUse", "PostBash", "PreCompact"],
-        "commands": ["/aeon-flux", "/loop", "/abort", "/pause", "/resume", "/status"]
+        "hooks": [
+          "Stop",
+          "SessionStart",
+          "PreToolUse",
+          "PostBash",
+          "PreCompact"
+        ],
+        "commands": [
+          "/aeon-flux",
+          "/loop",
+          "/abort",
+          "/pause",
+          "/resume",
+          "/status"
+        ]
       }
     },
     {
@@ -221,13 +305,31 @@
         }
       },
       "category": "productivity",
-      "tags": ["bash-loop", "action-oriented", "subagent-control", "context-preservation"],
-      "keywords": ["bash-loop", "feedback", "action", "tight-loop", "efficiency"],
+      "tags": [
+        "bash-loop",
+        "action-oriented",
+        "subagent-control",
+        "context-preservation"
+      ],
+      "keywords": [
+        "bash-loop",
+        "feedback",
+        "action",
+        "tight-loop",
+        "efficiency"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/aeon-flux",
       "status": "production-ready",
       "features": {
-        "skills": ["/bash-loop", "/abort", "/focus", "/reflect", "/checkpoint", "/resume"]
+        "skills": [
+          "/bash-loop",
+          "/abort",
+          "/focus",
+          "/reflect",
+          "/checkpoint",
+          "/resume"
+        ]
       }
     },
     {
@@ -276,13 +378,39 @@
         }
       },
       "category": "productivity",
-      "tags": ["linting", "progressive-linting", "eslint", "ruff", "python", "monorepo", "git-hooks", "drift-detection", "github-action"],
-      "keywords": ["linting", "progressive", "baseline", "eslint", "ruff", "python", "javascript", "typescript", "monorepo", "drift-detection", "auto-healing"],
+      "tags": [
+        "linting",
+        "progressive-linting",
+        "eslint",
+        "ruff",
+        "python",
+        "monorepo",
+        "git-hooks",
+        "drift-detection",
+        "github-action"
+      ],
+      "keywords": [
+        "linting",
+        "progressive",
+        "baseline",
+        "eslint",
+        "ruff",
+        "python",
+        "javascript",
+        "typescript",
+        "monorepo",
+        "drift-detection",
+        "auto-healing"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/gimme-the-lint",
       "status": "production-ready",
       "features": {
-        "commands": ["/lint", "/lint:status", "/lint:baseline"]
+        "commands": [
+          "/lint",
+          "/lint:status",
+          "/lint:baseline"
+        ]
       }
     },
     {
@@ -338,14 +466,34 @@
         }
       },
       "category": "developer-tools",
-      "tags": ["codebase-context", "project-map", "vocabulary", "developer-skill", "introspection", "drift-management"],
-      "keywords": ["project map", "babel fish", "vocabulary translation", "developer context", "code introspection", "auto-generated docs", "semantic drift", "technical translator"],
+      "tags": [
+        "codebase-context",
+        "project-map",
+        "vocabulary",
+        "developer-skill",
+        "introspection",
+        "drift-management"
+      ],
+      "keywords": [
+        "project map",
+        "babel fish",
+        "vocabulary translation",
+        "developer context",
+        "code introspection",
+        "auto-generated docs",
+        "semantic drift",
+        "technical translator"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/babel-fish",
       "status": "production-ready",
       "features": {
-        "hooks": ["pre-commit (auto-regenerate project map on source file changes)"],
-        "skills": ["/<project-slug>-developer-skill"],
+        "hooks": [
+          "pre-commit (auto-regenerate project map on source file changes)"
+        ],
+        "skills": [
+          "/<project-slug>-developer-skill"
+        ],
         "commands": [
           "python .claude/project-map/generate.py --force",
           "python .claude/project-map/grader.py",
@@ -402,14 +550,33 @@
         }
       },
       "category": "productivity",
-      "tags": ["planning", "persistence", "context-engineering", "markdown", "task-tracking"],
-      "keywords": ["planning", "persistent", "markdown", "context", "manus", "task-plan", "working-memory", "goal-tracking"],
+      "tags": [
+        "planning",
+        "persistence",
+        "context-engineering",
+        "markdown",
+        "task-tracking"
+      ],
+      "keywords": [
+        "planning",
+        "persistent",
+        "markdown",
+        "context",
+        "manus",
+        "task-plan",
+        "working-memory",
+        "goal-tracking"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/persistent-planning",
       "status": "production-ready",
       "features": {
-        "skills": ["/start-planning"],
-        "commands": ["/start-planning"]
+        "skills": [
+          "/start-planning"
+        ],
+        "commands": [
+          "/start-planning"
+        ]
       }
     },
     {
@@ -452,13 +619,111 @@
         }
       },
       "category": "search",
-      "tags": ["mcp-server", "semantic-search", "knowledge-graph", "markdown", "vector-search", "embeddings", "wikilinks"],
-      "keywords": ["mcp", "model-context-protocol", "semantic-search", "knowledge-graph", "markdown", "obsidian", "vector-search", "embeddings", "wikilinks", "claude", "llm", "notes", "vault", "frontmatter", "backlinks"],
+      "tags": [
+        "mcp-server",
+        "semantic-search",
+        "knowledge-graph",
+        "markdown",
+        "vector-search",
+        "embeddings",
+        "wikilinks"
+      ],
+      "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "semantic-search",
+        "knowledge-graph",
+        "markdown",
+        "obsidian",
+        "vector-search",
+        "embeddings",
+        "wikilinks",
+        "claude",
+        "llm",
+        "notes",
+        "vault",
+        "frontmatter",
+        "backlinks"
+      ],
       "license": "MIT",
       "homepage": "https://github.com/TheGlitchKing/semantic-pages",
       "status": "beta",
       "features": {
-        "mcpServers": ["semantic-pages"]
+        "mcpServers": [
+          "semantic-pages"
+        ]
+      }
+    },
+    {
+      "id": "the-joy-of-diagraming",
+      "name": "the-joy-of-diagraming",
+      "displayName": "The Joy of Diagraming",
+      "type": "claude-plugin",
+      "version": "1.0.4",
+      "description": "Generate production-quality SVG technical diagrams (architecture, flowchart, UML, ER, sequence, and more) with 7 built-in visual styles. Export as SVG+PNG via @resvg/resvg-js \u2014 zero system dependencies, pure npm.",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "the-joy-of-diagraming",
+        "url": "https://github.com/TheGlitchKing/the-joy-of-diagraming"
+      },
+      "source": {
+        "type": "npm",
+        "package": "@theglitchking/the-joy-of-diagraming"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "npm",
+            "command": "npm install @theglitchking/the-joy-of-diagraming"
+          },
+          {
+            "type": "npx",
+            "command": "npx skills add TheGlitchKing/the-joy-of-diagraming"
+          },
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin install TheGlitchKing/the-joy-of-diagraming"
+          }
+        ],
+        "requirements": {
+          "node": ">=14.0.0",
+          "claude-code": ">=1.0.0"
+        }
+      },
+      "category": "developer-tools",
+      "tags": [
+        "diagram",
+        "svg",
+        "architecture",
+        "flowchart",
+        "uml",
+        "visualization",
+        "claude-skill",
+        "png-export"
+      ],
+      "keywords": [
+        "diagram",
+        "svg",
+        "png",
+        "architecture diagram",
+        "flowchart",
+        "uml",
+        "sequence diagram",
+        "er diagram",
+        "technical diagram",
+        "visualization"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/the-joy-of-diagraming",
+      "status": "production-ready",
+      "features": {
+        "skills": [
+          "/the-joy-of-diagraming"
+        ]
       }
     }
   ],
