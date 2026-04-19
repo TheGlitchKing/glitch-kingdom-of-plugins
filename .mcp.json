@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "semantic-vault": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@theglitchking/semantic-pages@latest",
+        "--notes",
+        "./.claude/.vault"
+      ]
+    },
+    "semantic-pages": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@theglitchking/semantic-pages@latest",
+        "--notes",
+        "./.documentation",
+        "--read-only"
+      ]
+    }
+  }
+}

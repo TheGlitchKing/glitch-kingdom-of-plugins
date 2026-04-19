@@ -94,7 +94,7 @@
       "name": "mind-glaive",
       "displayName": "Mind Glaive",
       "type": "claude-plugin",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
       "author": {
         "name": "TheGlitchKing"
@@ -113,27 +113,15 @@
         "methods": [
           {
             "type": "npm",
-            "command": "npm install -g @theglitchking/mind-glaive && mind-glaive install --scope user --template full-stack"
-          },
-          {
-            "type": "npx",
-            "command": "npx @theglitchking/mind-glaive install --scope user --template full-stack"
+            "command": "npm install --save-dev @theglitchking/mind-glaive"
           },
           {
             "type": "claude-marketplace",
-            "command": "/plugin install TheGlitchKing/mind-glaive"
-          },
-          {
-            "type": "manual",
-            "steps": [
-              "git clone https://github.com/TheGlitchKing/mind-glaive.git",
-              "cd mind-glaive",
-              "./install.sh --scope user --template full-stack"
-            ]
+            "command": "/plugin marketplace add TheGlitchKing/mind-glaive && /plugin install mind-glaive@mind-glaive-marketplace"
           }
         ],
         "requirements": {
-          "node": ">=16.0.0",
+          "node": ">=20.0.0",
           "claude-code": ">=1.0.0",
           "bash": true,
           "optional": {
@@ -190,7 +178,7 @@
       "name": "aeon-loop",
       "displayName": "Aeon Loop",
       "type": "claude-plugin",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery. Includes bundled aeon-flux.",
       "author": {
         "name": "TheGlitchKing",
@@ -210,19 +198,15 @@
         "methods": [
           {
             "type": "npm",
-            "command": "npm install -g @theglitchking/aeon-loop && aeon-loop install --scope user"
-          },
-          {
-            "type": "npx",
-            "command": "npx @theglitchking/aeon-loop install --scope user"
+            "command": "npm install --save-dev @theglitchking/aeon-loop"
           },
           {
             "type": "claude-marketplace",
-            "command": "/plugin add TheGlitchKing/aeon-loop"
+            "command": "/plugin marketplace add TheGlitchKing/aeon-loop && /plugin install aeon-loop@aeon-loop-marketplace"
           }
         ],
         "requirements": {
-          "node": ">=16.0.0",
+          "node": ">=20.0.0",
           "claude-code": ">=2.0.13"
         }
       },
@@ -337,7 +321,7 @@
       "name": "gimme-the-lint",
       "displayName": "Gimme The Lint",
       "type": "claude-plugin",
-      "version": "1.1.2",
+      "version": "1.2.0",
       "description": "Progressive linting with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
       "author": {
         "name": "TheGlitchKing"
@@ -372,7 +356,7 @@
           }
         ],
         "requirements": {
-          "node": ">=18.0.0",
+          "node": ">=20.0.0",
           "python": ">=3.8 (optional, for backend linting)",
           "claude-code": ">=1.0.0"
         }
