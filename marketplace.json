@@ -94,7 +94,7 @@
       "name": "mind-glaive",
       "displayName": "Mind Glaive",
       "type": "claude-plugin",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
       "author": {
         "name": "TheGlitchKing"
