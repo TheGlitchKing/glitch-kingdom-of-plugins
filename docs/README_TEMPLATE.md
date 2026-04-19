@@ -81,50 +81,78 @@
 
 ### 1. Installation
 
-#### NPM
+All Glitch Kingdom plugins share the same two-install-path shape. Pick the one that fits your workflow.
+
+#### Option A: Claude Code Plugin Marketplace (recommended for individual users)
+
+Open any Claude Code session and run:
+
+```
+/plugin marketplace add TheGlitchKing/[plugin-name]
+/plugin install [plugin-name]@[plugin-name]-marketplace
+```
+
+That's it — the plugin is active for all your projects. No terminal needed.
+
+#### Option B: Project-level npm install (recommended for teams, CI, and AI-assisted projects)
+
+Pins the version in `package.json`, visible to teammates and anyone (or any agent) reading the repo:
+
+```bash
+npm install --save-dev @theglitchking/[plugin-name]
+```
+
+The postinstall step will automatically:
+- symlink any bundled skills into `<project>/.claude/skills/`
+- write a default `<project>/.claude/[plugin-name].json` with `{ "updatePolicy": "nudge" }`
+- register a SessionStart update-check hook in `<project>/.claude/settings.json` — but skip that step if the marketplace version is already enabled globally, so you never get duplicate hooks
+
+#### Verify
+
+```bash
+npx --no @theglitchking/[plugin-name] status
+```
+
+You should see the installed version, latest version on npm, current update policy, and hook registration state.
+
+---
+
+### Update management
+
+Every install ships with an update policy controlling what happens at the start of each Claude Code session when a newer version is available on npm. Default is `nudge` (one-liner notification, no automatic changes).
+
+```bash
+npx --no @theglitchking/[plugin-name] policy auto     # auto-update on session start
+npx --no @theglitchking/[plugin-name] policy nudge    # one-liner nudge only (default)
+npx --no @theglitchking/[plugin-name] policy off      # silent
+npx --no @theglitchking/[plugin-name] update          # update now
+```
+
+Slash-command parity: `/[plugin-name]:{status,policy,update,relink}`.
+
+Policy resolution order: `[PLUGIN_NAME_UPPER_SNAKE]_UPDATE_POLICY` env var → `<project>/.claude/[plugin-name].json` → default `nudge`.
+
+### Env-var opt-outs
+
+| Variable | Effect |
+|---|---|
+| `[PREFIX]_UPDATE_POLICY` | One-shot policy override for the current session |
+| `[PREFIX]_SKIP_LINK=1` | Skip skill symlinking in postinstall |
+| `[PREFIX]_SKIP_HOOK_REGISTER=1` | Skip writing the SessionStart hook into `.claude/settings.json` |
+
+---
 
 <!--
-  Write these instructions as if the reader has never used npm before.
-  Include every step: install, then how to enable/init the plugin in Claude Code.
-  Use plain language — no assumptions about terminal experience.
+  Legacy section preserved below for plugins that pre-date the shared runtime
+  (pre-2.0). New plugins should delete this section entirely.
 -->
 
-**Step 1 — Install the package**
+<details>
+<summary>Legacy install (pre-runtime, for reference only)</summary>
 
-Open your terminal and run this command:
+Older plugins in this marketplace (before adopting `@theglitchking/claude-plugin-runtime`) used a hand-rolled `<plugin-name> install --scope user` flow. That shape is deprecated — the deprecation shim in v2+ prints a migration pointer and exits 0. Don't document this pattern for new plugins.
 
-```bash
-npm install -g @theglitchking/[plugin-name]
-```
-
-This downloads the plugin to your computer and makes it available as a command you can run from anywhere.
-
-**Step 2 — Install it into Claude Code**
-
-Next, run this command to add the plugin to your Claude Code setup:
-
-```bash
-[plugin-name] install --scope user
-```
-
-> Use `--scope user` to install for your user account (works in all your projects).
-> Use `--scope project` to install for the current project only.
-
-**Step 3 — Verify it worked**
-
-```bash
-[plugin-name] status
-```
-
-You should see a message confirming the plugin is active. If you see an error, check the Troubleshooting section in [Technical Details](#technical-details).
-
-**NPX (no install required)**
-
-If you don't want to install globally, you can run it directly:
-
-```bash
-npx @theglitchking/[plugin-name] install --scope user
-```
+</details>
 
 ---
 

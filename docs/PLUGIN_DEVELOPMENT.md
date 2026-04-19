@@ -2,6 +2,63 @@
 
 Guide for developing and contributing plugins to the Glitch Kingdom Marketplace.
 
+> **Start here: adopt the shared runtime.** All new plugins in this marketplace must use [`@theglitchking/claude-plugin-runtime`](https://github.com/TheGlitchKing/claude-plugin-runtime) for postinstall, SessionStart update-nudge, and the `update` / `policy` / `status` / `relink` CLI subcommand surface. The runtime's [authoring scaffold](https://github.com/TheGlitchKing/claude-plugin-runtime/blob/main/docs/PLUGIN_AUTHORING_SCAFFOLD.md) has copy-paste templates for every file a new plugin needs.
+>
+> This doc covers the marketplace-side concerns: plugin types, listing your plugin, submission, validation. For the actual build/authoring step, jump to the scaffold.
+
+## Canonical Plugin Shape (2026+)
+
+Every plugin in this marketplace ships the same three files that wire it into the shared runtime:
+
+**1. `scripts/link-skills.js`** (postinstall):
+```js
+#!/usr/bin/env node
+import { runPostinstall } from "@theglitchking/claude-plugin-runtime";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+
+runPostinstall({
+  packageName: "@theglitchking/<plugin-name>",
+  pluginName: "<plugin-name>",
+  configFile: "<plugin-name>.json",
+  skillsDir: "skills",            // or null if the plugin ships no skills
+  packageRoot,
+  hookCommand: "node ./node_modules/@theglitchking/<plugin-name>/hooks/session-start.js",
+});
+```
+
+**2. `hooks/session-start.js`** (update-check hook):
+```js
+#!/usr/bin/env node
+import { runSessionStart } from "@theglitchking/claude-plugin-runtime";
+
+await runSessionStart({
+  packageName: "@theglitchking/<plugin-name>",
+  pluginName: "<plugin-name>",
+  configFile: "<plugin-name>.json",
+  reconcile: (projectRoot) => { /* optional plugin-specific setup */ },
+});
+```
+
+**3. `bin/<plugin-name>.js`** (CLI entry — commander-based):
+```js
+import { program } from "commander";
+import { registerUpdateCommands } from "@theglitchking/claude-plugin-runtime";
+// ... register your own subcommands
+registerUpdateCommands(program, {
+  packageName: "@theglitchking/<plugin-name>",
+  pluginName: "<plugin-name>",
+  configFile: "<plugin-name>.json",
+});
+program.parse();
+```
+
+Plus `commands/{update,policy,status,relink}.md` for slash-command parity (templates in the scaffold doc).
+
+The result: every plugin exposes the same update-management surface, and bug fixes in the runtime propagate to every plugin on their next `npm update`.
+
 ## Plugin Types
 
 The marketplace supports four plugin types:

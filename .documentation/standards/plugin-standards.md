@@ -31,6 +31,45 @@ backlinks: []
 
 Standards and requirements for plugins in the Glitch Kingdom Marketplace to ensure consistency, quality, and maintainability.
 
+## Required: Adopt the shared runtime (2026+)
+
+All new plugins listed in this marketplace **must** adopt [`@theglitchking/claude-plugin-runtime`](https://github.com/TheGlitchKing/claude-plugin-runtime) (`^0.1.0`). This replaces the old hand-rolled `<plugin> install --scope user` flow that pre-2.0 plugins used.
+
+The runtime is mandatory because it provides:
+
+- **Standardized postinstall**: symlinks bundled skills into `.claude/skills/`, writes a default `.claude/<plugin>.json` (update policy: `nudge`), and registers a SessionStart hook in `.claude/settings.json` — with plugin-vs-npm dedup so users never get duplicate hooks firing.
+- **Uniform update-nudge surface**: every plugin responds to the same `update` / `policy` / `status` / `relink` CLI subcommands and slash commands. Policy resolution, cache TTL, CI-skip, auto-update behavior, and env-var opt-outs are identical across plugins.
+- **Single source of fixes**: a bug fix in the runtime propagates to every plugin on their next `npm update`. The 0.9.0→0.10.0 semantic-pages `.mcp.json` rewrite incident is a concrete example — the runtime is where dedup / backup / validation logic lives.
+
+**Three files** in every plugin's repo are standardized. See the [authoring scaffold](https://github.com/TheGlitchKing/claude-plugin-runtime/blob/main/docs/PLUGIN_AUTHORING_SCAFFOLD.md) for the templates:
+
+1. `scripts/link-skills.js` — postinstall delegator (~20 lines)
+2. `hooks/session-start.js` — update-check hook (~10 lines; an optional `reconcile` callback handles plugin-specific setup like `.mcp.json` wiring)
+3. `commands/{update,policy,status,relink}.md` — thin slash-command wrappers
+
+### Mandatory behaviors
+
+Every adopted plugin **must**:
+
+- Depend on `@theglitchking/claude-plugin-runtime` with a conservative semver range (`^0.1.0` or tighter). **Do not** use `*` or `latest`.
+- Register postinstall as `node scripts/link-skills.js` in `package.json` `"scripts"`.
+- Ship `commands/`, `hooks/`, and `scripts/link-skills.js` in the npm `files` allowlist.
+- Honor the three standard env-var opt-outs:
+  - `<PREFIX>_UPDATE_POLICY` — one-shot policy override
+  - `<PREFIX>_SKIP_LINK=1` — skip skill symlinking
+  - `<PREFIX>_SKIP_HOOK_REGISTER=1` — skip `.claude/settings.json` hook registration
+- Use a unique `configFile` (conventionally `<plugin-name>.json` under `.claude/`).
+- Use the upper-snake form of `pluginName` as the default env prefix (e.g. `hit-em-with-the-docs` → `HIT_EM_WITH_THE_DOCS`).
+
+### Prohibited patterns
+
+Plugins in this marketplace **must not**:
+
+- Rewrite existing `.mcp.json` entries during postinstall or at session start without user consent. If you must create an entry, use the stable `node ./node_modules/.../bin/<name>` form — never `npx ... @latest` (that shape is fragile to npx cache corruption).
+- Register a SessionStart hook inside `.claude/settings.json` without checking for a pre-existing entry (substring match on the plugin name is the canonical dedup check).
+- Hardcode `--version` as a string literal. Read dynamically from `package.json` via `createRequire`.
+- Introduce heavy transitive dependencies in the postinstall path. Stick to `fs` / `path` / `child_process` / `fetch` from stdlib.
+
 ## Plugin Types
 
 The marketplace supports four plugin types:

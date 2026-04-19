@@ -8,6 +8,24 @@ Welcome. This guide covers everything you need to add a plugin to the marketplac
 - [README Template](./docs/README_TEMPLATE.md) — copy this for your plugin's README
 - [Architecture Overview](./docs/ARCHITECTURE.md) — how the marketplace works
 - [JSON Schema](./schemas/plugin-schema.json) — marketplace.json validation rules
+- **[Plugin Authoring Scaffold](https://github.com/TheGlitchKing/claude-plugin-runtime/blob/main/docs/PLUGIN_AUTHORING_SCAFFOLD.md)** — copy-paste templates for every file a new plugin needs (recommended starting point)
+
+---
+
+## The Runtime (start here)
+
+Every plugin in this marketplace adopts [`@theglitchking/claude-plugin-runtime`](https://github.com/TheGlitchKing/claude-plugin-runtime) for:
+
+- **Postinstall skill symlinking + default policy config** (`.claude/<plugin>.json`)
+- **SessionStart hook registration with plugin-vs-npm dedup** in `.claude/settings.json`
+- **Standardized CLI subcommands**: `update`, `policy`, `status`, `relink`
+- **Slash-command parity**: `/<plugin-name>:{update,policy,status,relink}`
+
+This replaces the hand-rolled `install --scope user` flows that older plugins (pre-2.0) used to ship. **All new plugins must adopt the runtime.** See the [authoring scaffold](https://github.com/TheGlitchKing/claude-plugin-runtime/blob/main/docs/PLUGIN_AUTHORING_SCAFFOLD.md) for the three minimum files every plugin needs:
+
+- `scripts/link-skills.js` — 20-line postinstall delegator
+- `hooks/session-start.js` — 10-line SessionStart delegator (plus optional `reconcile` callback for plugin-specific state like `.mcp.json` wiring)
+- `commands/{update,policy,status,relink}.md` — slash-command wrappers
 
 ---
 
