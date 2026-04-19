@@ -18,7 +18,7 @@
       "name": "hit-em-with-the-docs",
       "displayName": "Hit 'Em With The Docs",
       "type": "cli-tool",
-      "version": "2.0.1",
+      "version": "2.1.0",
       "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
       "author": {
         "name": "TheGlitchKing"
@@ -418,7 +418,7 @@
       "name": "babel-fish",
       "displayName": "Babel Fish",
       "type": "claude-plugin",
-      "version": "1.0.2",
+      "version": "2.0.0",
       "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.",
       "author": {
         "name": "TheGlitchKing"
@@ -457,7 +457,7 @@
         ],
         "requirements": {
           "claude-code": ">=1.0.0",
-          "node": ">=16.0.0",
+          "node": ">=20.0.0",
           "python": ">=3.8",
           "bash": true,
           "optional": {
@@ -506,7 +506,7 @@
       "name": "persistent-planning",
       "displayName": "Persistent Planning",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "description": "Persistent markdown-based planning with task directories, progress tracking, and context engineering for multi-step Claude Code workflows",
       "author": {
         "name": "TheGlitchKing"
@@ -525,23 +525,11 @@
         "methods": [
           {
             "type": "npm",
-            "command": "npm install -g @theglitchking/persistent-planning && persistent-planning install --scope user"
-          },
-          {
-            "type": "npx",
-            "command": "npx @theglitchking/persistent-planning install --scope user"
+            "command": "npm install --save-dev @theglitchking/persistent-planning"
           },
           {
             "type": "claude-marketplace",
-            "command": "/plugin install TheGlitchKing/persistent-planning"
-          },
-          {
-            "type": "manual",
-            "steps": [
-              "git clone https://github.com/TheGlitchKing/persistent-planning.git",
-              "cd persistent-planning",
-              "./install.sh --scope user"
-            ]
+            "command": "/plugin marketplace add TheGlitchKing/persistent-planning && /plugin install persistent-planning@persistent-planning-marketplace"
           }
         ],
         "requirements": {
@@ -584,7 +572,7 @@
       "name": "semantic-pages",
       "displayName": "Semantic Pages",
       "type": "mcp-server",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "description": "Semantic search + knowledge graph MCP server for any folder of markdown files. 21 tools: vector search, text search, graph traversal, CRUD, frontmatter/tag management. No Docker, no Python, no Obsidian.",
       "author": {
         "name": "TheGlitchKing"
@@ -659,7 +647,7 @@
       "name": "the-joy-of-diagraming",
       "displayName": "The Joy of Diagraming",
       "type": "claude-plugin",
-      "version": "1.0.4",
+      "version": "2.0.0",
       "description": "Generate production-quality SVG technical diagrams (architecture, flowchart, UML, ER, sequence, and more) with 7 built-in visual styles. Export as SVG+PNG via @resvg/resvg-js \u2014 zero system dependencies, pure npm.",
       "author": {
         "name": "TheGlitchKing"
@@ -690,7 +678,7 @@
           }
         ],
         "requirements": {
-          "node": ">=14.0.0",
+          "node": ">=20.0.0",
           "claude-code": ">=1.0.0"
         }
       },
