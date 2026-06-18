@@ -22,3 +22,6 @@
 [submodule "plugins/aeon-loop"]
 	path = plugins/aeon-loop
 	url = https://github.com/TheGlitchKing/aeon-loop.git
+[submodule "plugins/glitch-browser-plugin"]
+	path = plugins/glitch-browser-plugin
+	url = https://github.com/TheGlitchKing/glitch-browser-plugin.git

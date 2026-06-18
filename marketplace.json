@@ -632,7 +632,7 @@
       "displayName": "The Joy of Diagraming",
       "type": "claude-plugin",
       "version": "2.0.0",
-      "description": "Generate production-quality SVG technical diagrams (architecture, flowchart, UML, ER, sequence, and more) with 7 built-in visual styles. Export as SVG+PNG via @resvg/resvg-js \u2014 zero system dependencies, pure npm.",
+      "description": "Generate production-quality SVG technical diagrams (architecture, flowchart, UML, ER, sequence, and more) with 7 built-in visual styles. Export as SVG+PNG via @resvg/resvg-js — zero system dependencies, pure npm.",
       "author": {
         "name": "TheGlitchKing"
       },
@@ -695,6 +695,86 @@
       "features": {
         "skills": [
           "/the-joy-of-diagraming"
+        ]
+      }
+    },
+    {
+      "id": "glitch-browser-plugin",
+      "name": "glitch-browser-plugin",
+      "displayName": "Glitch Browser Plugin",
+      "type": "claude-plugin",
+      "version": "0.1.0",
+      "description": "Let Claude Code (on a remote dev box) drive your real local Chrome over a CDP-over-SSH reverse tunnel, for frontend troubleshooting. You watch and click in the same window.",
+      "author": {
+        "name": "TheGlitchKing"
+      },
+      "repository": {
+        "type": "github",
+        "owner": "TheGlitchKing",
+        "repo": "glitch-browser-plugin",
+        "url": "https://github.com/TheGlitchKing/glitch-browser-plugin"
+      },
+      "source": {
+        "type": "submodule",
+        "path": "./plugins/glitch-browser-plugin"
+      },
+      "installation": {
+        "methods": [
+          {
+            "type": "claude-marketplace",
+            "command": "/plugin marketplace add TheGlitchKing/glitch-browser-plugin && /plugin install glitch-browser-plugin@glitch-kingdom-of-plugins"
+          },
+          {
+            "type": "manual",
+            "steps": [
+              "Install the Claude Code plugin (above) on your remote dev box",
+              "Download and run glitch-browser-setup.exe on your Windows desktop (from the GitHub Release)",
+              "In a project: /glitch-browser-plugin:attach, then /mcp reconnect playwright"
+            ]
+          }
+        ],
+        "requirements": {
+          "node": ">=20.0.0",
+          "claude-code": ">=1.0.0",
+          "optional": {
+            "windows": "The local agent + one-click installer target Windows (Chrome + OpenSSH Client required)",
+            "ssh": "Key-based SSH from the desktop to the remote dev box"
+          }
+        }
+      },
+      "category": "developer-tools",
+      "tags": [
+        "browser",
+        "playwright",
+        "cdp",
+        "ssh-tunnel",
+        "frontend",
+        "remote-development"
+      ],
+      "keywords": [
+        "browser",
+        "playwright",
+        "chrome-devtools-protocol",
+        "ssh-tunnel",
+        "remote-development",
+        "frontend",
+        "claude-code"
+      ],
+      "license": "MIT",
+      "homepage": "https://github.com/TheGlitchKing/glitch-browser-plugin",
+      "status": "beta",
+      "features": {
+        "hooks": [
+          "SessionStart"
+        ],
+        "commands": [
+          "/glitch-browser-plugin:attach",
+          "/glitch-browser-plugin:detach",
+          "/glitch-browser-plugin:doctor",
+          "/glitch-browser-plugin:update",
+          "/glitch-browser-plugin:policy",
+          "/glitch-browser-plugin:status",
+          "/glitch-browser-plugin:relink"
         ]
       }
     }
