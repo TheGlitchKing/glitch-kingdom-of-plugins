@@ -10,7 +10,7 @@
       "name": "hit-em-with-the-docs",
       "displayName": "Hit 'Em With The Docs",
       "type": "cli-tool",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "description": "Self-managing documentation system with hierarchical structure, intelligent automation, pattern discovery, and agent orchestration",
       "category": "documentation",
       "tags": [
@@ -48,7 +48,7 @@
       "name": "mind-glaive",
       "displayName": "Mind Glaive",
       "type": "claude-plugin",
-      "version": "1.1.0",
+      "version": "2.0.1",
       "description": "Eliminate context rot in Claude Code with intelligent memory, auto-learning hooks, and specialized subagents",
       "category": "productivity",
       "tags": [
@@ -73,7 +73,7 @@
       "repository": "https://github.com/TheGlitchKing/mind-glaive",
       "installation": {
         "type": "npm",
-        "command": "npm install -g @theglitchking/mind-glaive && mind-glaive install --scope user --template full-stack"
+        "command": "npm install --save-dev @theglitchking/mind-glaive"
       }
     },
     {
@@ -81,7 +81,7 @@
       "name": "aeon-loop",
       "displayName": "Aeon Loop",
       "type": "claude-plugin",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "description": "Autonomous task execution with loop engine, orchestrated subagents, context persistence, and intelligent failure recovery. Includes bundled aeon-flux.",
       "category": "productivity",
       "tags": [
@@ -103,7 +103,7 @@
       "repository": "https://github.com/TheGlitchKing/aeon-loop",
       "installation": {
         "type": "npm",
-        "command": "npm install -g @theglitchking/aeon-loop && aeon-loop install --scope user"
+        "command": "npm install --save-dev @theglitchking/aeon-loop"
       }
     },
     {
@@ -141,7 +141,7 @@
       "name": "gimme-the-lint",
       "displayName": "Gimme The Lint",
       "type": "claude-plugin",
-      "version": "1.0.1",
+      "version": "1.2.0",
       "description": "Progressive linting with directory-chunked baselines, drift detection, and auto-healing for monorepo projects (Python + JS/TS)",
       "category": "productivity",
       "tags": [
@@ -181,7 +181,7 @@
       "name": "babel-fish",
       "displayName": "Babel Fish",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "description": "Auto-generates a project map, vocabulary translation layer, and developer skill for any codebase. Introspects routes, models, services, features, infrastructure, and session history to give Claude instant full-stack context. Self-updates via pre-commit hook. Iterative install with 90% quality threshold and human-readable grading reports.",
       "category": "developer-tools",
       "tags": [
@@ -206,8 +206,8 @@
       "homepage": "https://github.com/TheGlitchKing/babel-fish",
       "repository": "https://github.com/TheGlitchKing/babel-fish",
       "installation": {
-        "type": "claude-marketplace",
-        "command": "/plugin install TheGlitchKing/babel-fish"
+        "type": "npm",
+        "command": "npm install -g @theglitchking/babel-fish && babel-fish init"
       }
     },
     {
@@ -215,7 +215,7 @@
       "name": "persistent-planning",
       "displayName": "Persistent Planning",
       "type": "claude-plugin",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "description": "Persistent markdown-based planning with task directories, progress tracking, and context engineering for multi-step Claude Code workflows",
       "category": "productivity",
       "tags": [
@@ -240,7 +240,120 @@
       "repository": "https://github.com/TheGlitchKing/persistent-planning",
       "installation": {
         "type": "npm",
-        "command": "npm install -g @theglitchking/persistent-planning && persistent-planning install --scope user"
+        "command": "npm install --save-dev @theglitchking/persistent-planning"
+      }
+    },
+    {
+      "id": "semantic-pages",
+      "name": "semantic-pages",
+      "displayName": "Semantic Pages",
+      "type": "mcp-server",
+      "version": "0.10.0",
+      "description": "Semantic search + knowledge graph MCP server for any folder of markdown files. 21 tools: vector search, text search, graph traversal, CRUD, frontmatter/tag management. No Docker, no Python, no Obsidian.",
+      "category": "search",
+      "tags": [
+        "mcp-server",
+        "semantic-search",
+        "knowledge-graph",
+        "markdown",
+        "vector-search",
+        "embeddings",
+        "wikilinks"
+      ],
+      "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "semantic-search",
+        "knowledge-graph",
+        "markdown",
+        "obsidian",
+        "vector-search",
+        "embeddings",
+        "wikilinks",
+        "claude",
+        "llm",
+        "notes",
+        "vault",
+        "frontmatter",
+        "backlinks"
+      ],
+      "status": "beta",
+      "homepage": "https://github.com/TheGlitchKing/semantic-pages",
+      "repository": "https://github.com/TheGlitchKing/semantic-pages",
+      "installation": {
+        "type": "npm",
+        "command": "npm install -g semantic-pages"
+      }
+    },
+    {
+      "id": "the-joy-of-diagraming",
+      "name": "the-joy-of-diagraming",
+      "displayName": "The Joy of Diagraming",
+      "type": "claude-plugin",
+      "version": "2.0.0",
+      "description": "Generate production-quality SVG technical diagrams (architecture, flowchart, UML, ER, sequence, and more) with 7 built-in visual styles. Export as SVG+PNG via @resvg/resvg-js — zero system dependencies, pure npm.",
+      "category": "developer-tools",
+      "tags": [
+        "diagram",
+        "svg",
+        "architecture",
+        "flowchart",
+        "uml",
+        "visualization",
+        "claude-skill",
+        "png-export"
+      ],
+      "keywords": [
+        "diagram",
+        "svg",
+        "png",
+        "architecture diagram",
+        "flowchart",
+        "uml",
+        "sequence diagram",
+        "er diagram",
+        "technical diagram",
+        "visualization"
+      ],
+      "status": "production-ready",
+      "homepage": "https://github.com/TheGlitchKing/the-joy-of-diagraming",
+      "repository": "https://github.com/TheGlitchKing/the-joy-of-diagraming",
+      "installation": {
+        "type": "npm",
+        "command": "npm install @theglitchking/the-joy-of-diagraming"
+      }
+    },
+    {
+      "id": "glitch-browser-plugin",
+      "name": "glitch-browser-plugin",
+      "displayName": "Glitch Browser Plugin",
+      "type": "claude-plugin",
+      "version": "0.1.0",
+      "description": "Let Claude Code (on a remote dev box) drive your real local Chrome over a CDP-over-SSH reverse tunnel, for frontend troubleshooting. You watch and click in the same window.",
+      "category": "developer-tools",
+      "tags": [
+        "browser",
+        "playwright",
+        "cdp",
+        "ssh-tunnel",
+        "frontend",
+        "remote-development"
+      ],
+      "keywords": [
+        "browser",
+        "playwright",
+        "chrome-devtools-protocol",
+        "ssh-tunnel",
+        "remote-development",
+        "frontend",
+        "claude-code"
+      ],
+      "status": "beta",
+      "homepage": "https://github.com/TheGlitchKing/glitch-browser-plugin",
+      "repository": "https://github.com/TheGlitchKing/glitch-browser-plugin",
+      "installation": {
+        "type": "claude-marketplace",
+        "command": "/plugin marketplace add TheGlitchKing/glitch-browser-plugin && /plugin install glitch-browser-plugin@glitch-kingdom-of-plugins"
       }
     }
   ],
@@ -260,6 +373,10 @@
     "automation": {
       "name": "Automation",
       "description": "Tools for automating repetitive tasks"
+    },
+    "search": {
+      "name": "Search & Knowledge",
+      "description": "Tools for semantic search, knowledge graphs, and information retrieval over markdown and code"
     }
   }
 }
